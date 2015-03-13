@@ -1,3 +1,13 @@
 te_platform_homepage:
     path:     /
     defaults: { _controller: TEPlatformBundle:Lift:index }
+
+login:
+    pattern:   /login
+    defaults:  { _controller: TEUserBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
