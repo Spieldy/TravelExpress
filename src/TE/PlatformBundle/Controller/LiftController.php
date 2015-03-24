@@ -15,7 +15,7 @@ class LiftController extends Controller
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
         $lifts = $liftRepository->findAll();
 
-        return $this->render('TEPlatformBundle:Lift:index.html.twig',$lifts);
+        return $this->render('TEPlatformBundle:Lift:index.html.twig',array("lifts"=>$lifts));
     }
 
     public function addAction(Request $request)
