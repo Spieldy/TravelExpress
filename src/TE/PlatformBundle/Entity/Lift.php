@@ -60,8 +60,7 @@ class Lift
      *
      * @ORM\Column(name="isAvailable", type="boolean")
      */
-    private $isAvailable;
-
+    private $isAvailable = true;
 
 
     /**

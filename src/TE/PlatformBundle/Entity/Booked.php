@@ -39,6 +39,10 @@ class Booked
      */
     private $seats;
 
+    public function __construct()
+    {
+      $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id
