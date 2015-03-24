@@ -2,10 +2,6 @@ te_platform_homepage:
     path:     /
     defaults: { _controller: TEPlatformBundle:Lift:index }
 
-te_lift:
-  path: /lift
-  defaults: { _controller: TEPlatformBundle:Lift:show }
-
 te_lift_add:
     path:     /lift/add
     defaults: { _controller: TEPlatformBundle:Lift:add }
