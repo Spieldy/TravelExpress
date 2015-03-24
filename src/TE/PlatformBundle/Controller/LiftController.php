@@ -11,7 +11,11 @@ class LiftController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('TEPlatformBundle:Lift:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
+        $lifts = $liftRepository->findAll();
+
+        return $this->render('TEPlatformBundle:Lift:index.html.twig',$lifts);
     }
 
     public function addAction(Request $request)
@@ -43,10 +47,10 @@ class LiftController extends Controller
         $em->persist($lift);
         $em->flush();
 
-        $request->getSession()->getFlashBag()->add('notice', 'Annonce bien enregistrée.');
+        $request->getSession()->getFlashBag()->add('notice', 'Trajet bien enregistré');
 
         // On redirige vers la page de visualisation de l'annonce nouvellement créée
-        return $this->redirect($this->generateUrl('te_lift', array('id' => $lift->getId())));
+        return $this->redirect($this->generateUrl('te_lift_homepage'));
       }
 
       // À ce stade, le formulaire n'est pas valide car :

@@ -1,0 +1,91 @@
+/**  */
+
+body {
+	font-size: 1.8rem;
+}
+
+/** Layout */
+.Header-nav,
+.Main {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 2rem 0;
+}
+
+/** Elements */
+.Header {
+	background-color: #333;
+	color:#EFEFEF;
+
+}
+.Header a {
+	color:#EFEFEF;
+}
+
+.Menu {
+	list-style: none;
+	display: inline;
+	padding: 0;
+}
+.MenuItem {
+	display: inline-block;
+}
+.MenuItem a {
+	display: block;
+	padding: 1rem;
+}
+
+.Search input {
+	width: 100%;
+}
+.Lifts {
+	list-style: none;
+	padding: 0
+}
+	.Lift {
+		background-color: #EFEFEF;
+		border-radius: 2px;
+		overflow: hidden;
+	}
+		.LiftTitle {
+			padding: 1rem;
+			margin: 0;
+			background-color: #CDCDCD;
+			border-bottom: 2px solid #888;
+		}
+		.LiftText {
+			font-size: 1.8rem;
+			padding: 1rem;
+		}
+
+/** UI */
+input,
+.Btn {
+	border-radius: 2px;
+	border:0 none;
+	padding: 1rem;
+}
+
+input[type="text"]{
+	box-shadow: inset 0px 0px 2px #000;
+}
+input[type="text"]:active,
+input[type="text"]:focus{
+	box-shadow: inset 0px 0px 4px #000;
+}
+
+.Btn {
+	color:#EFEFEF;
+	background-color: #666;
+}
+.Btn:active,
+.Btn:hover,
+.Btn:focus {
+	background-color: #333;
+}
+
+/** Tools */
+
+.hidden {
+	display: none;
+}	

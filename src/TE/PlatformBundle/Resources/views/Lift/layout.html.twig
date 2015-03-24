@@ -1,23 +1,50 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
     <meta charset="utf-8">
-    <title>{% block title %}TravelExpress{% endblock %}</title>
-  </head>
-  <body>
-
-    <nav>
-      {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-        <a href="{{ path('te_platform_homepage') }}">Acceuil</a>
-        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-      {% else %}
-        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-        <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
-      {% endif %}
-    </nav>
-
-    {% block body %}
+  
+    {% block stylesheets %}
+        <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('bower_components/knacss/css/knacss.css') }}" rel="stylesheet" />
     {% endblock %}
 
-  </body>
+    
+    <title>{% block title %}Travel Express{% endblock %}</title>
+</head>
+<body>
+
+    <header class="Header">
+        <nav class="Header-nav">
+            <h1> <a href="index.html">Travel Express</a></h1>
+            <ul class="Menu">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                  <li class="MenuItem active">
+                    <a href="{{ path('te_platform_homepage') }}">Acceuil</a>
+                  </li>
+                  <li class="MenuItem active">
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                  </li>
+                {% else %}
+                  <li class="MenuItem active">
+                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                  </li>
+                  <li class="MenuItem active">
+                    <a href="{{ path('fos_user_registration_register') }}">Inscription</a>
+                  </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+        
+    <main class="Main">
+      {% block body %}
+        
+      {% endblock %}
+    </main>
+
+    {% block javascripts %}
+        <script src="{{ asset('bower_components/jquery/dist/jquery.js') }}"></script>
+        <script src="{{ asset('js/chrome.js') }}"></script>
+    {% endblock %}
+</body>
 </html>

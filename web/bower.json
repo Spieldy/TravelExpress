@@ -1,0 +1,9 @@
+{
+  "name": "Travel Express",
+  "version": "0.0.1",
+  "dependencies": {
+	"knacss":"3.0",
+	"jquery": "2.1.3"
+  }
+}
+
