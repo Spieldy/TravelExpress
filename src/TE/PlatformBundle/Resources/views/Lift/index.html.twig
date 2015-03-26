@@ -1,29 +1,29 @@
-{% extends "TEPlatformBundle:Lift:layout.html.twig" %}
+{% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block body %}
-	<form action="" class="Search autogrid3">
-	    <div>
-	    <label for="depart" class="hidden">Ville de départ</label>
-	    <input type="text" placeholder="Ville de départ" id="depart">
-	    </div>
-	    <div>
-	    <label for="arivee" class="hidden">Ville d'arrivée</label>
-	    <input type="text" placeholder="Ville d'arrivée" id="arivee">
-	    </div>
-	    <div>
-	    <input type="submit" class="Btn" value="Rechercher">
-	    </div>
-	</form>
-	<ul class="Lifts">
-	    <li>
-	        <article class="Lift">
-	            <h2 class="LiftTitle">Montreal » Chicoutimi</h2>
-	            <p class="LiftText">
-	                <span class="Date">Date : 26/10/1992</span><br>
-	                <span class="Places">Places disponibles : 3</span><br>
-	                <span class="Price">Prix total : 12$</span>
-	            </p>
-	        </article>
-	    </li>
-	</ul>
+  <form action="" class="Search autogrid3">
+      <div>
+      <label for="depart" class="hidden">Ville de départ</label>
+      <input type="text" placeholder="Ville de départ" id="depart">
+      </div>
+      <div>
+      <label for="arivee" class="hidden">Ville d'arrivée</label>
+      <input type="text" placeholder="Ville d'arrivée" id="arivee">
+      </div>
+      <div>
+      <input type="submit" class="Btn" value="Rechercher">
+      </div>
+  </form>
+  <ul class="Lifts">
+      <li>
+          <article class="Lift">
+              <h2 class="LiftTitle">Montreal » Chicoutimi</h2>
+              <p class="LiftText">
+                  <span class="Date">Date : 26/10/1992</span><br>
+                  <span class="Places">Places disponibles : 3</span><br>
+                  <span class="Price">Prix total : 12$</span>
+              </p>
+          </article>
+      </li>
+  </ul>
 {% endblock %}

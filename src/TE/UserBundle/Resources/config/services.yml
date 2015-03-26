@@ -1,4 +1,0 @@
-services:
-#    te_user.example:
-#        class: TE\UserBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]

@@ -3,6 +3,8 @@
 namespace TE\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use TE\UserBundle\Entity\User;
+
 
 /**
  * Booked
@@ -22,7 +24,7 @@ class Booked
     private $id;
 
     /**
-    * @ORM\ManyToMany(targetEntity="TE\UserBundle\Entity\User", cascade={"persist"})
+    * @ORM\ManyToMany(targetEntity="TE\PlatformBundle\Entity\User", cascade={"persist"})
     */
     private $users;
 

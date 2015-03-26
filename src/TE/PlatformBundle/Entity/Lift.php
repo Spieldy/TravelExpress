@@ -3,6 +3,8 @@
 namespace TE\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use TE\PlatformBundle\Entity\User;
+
 
 /**
  * Lift
@@ -22,7 +24,7 @@ class Lift
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="TE\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
@@ -54,6 +56,13 @@ class Lift
      * @ORM\Column(name="price", type="decimal")
      */
     private $price;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="seats", type="integer")
+     */
+    private $seats;
 
     /**
      * @var boolean
@@ -190,13 +199,21 @@ class Lift
         return $this;
     }
 
-    /**
-     * Get isAvailable
-     *
-     * @return boolean
-     */
+
     public function getIsAvailable()
     {
         return $this->isAvailable;
+    }
+
+    public function setSeats($seats)
+    {
+        $this->seats = $seats;
+
+        return $this;
+    }
+
+    public function getseats()
+    {
+        return $this->seats;
     }
 }

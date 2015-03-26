@@ -1,15 +1,16 @@
 <?php
 
-namespace TE\UserBundle\Entity;
+namespace TE\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+
 
 /**
  * User
  *
  * @ORM\Table(name="user")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="TE\PlatformBundle\Entity\UserRepository")
  */
 class User extends BaseUser
 {
@@ -21,4 +22,5 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
 }
