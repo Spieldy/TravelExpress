@@ -24,26 +24,20 @@ class Booked
     private $id;
 
     /**
-    * @ORM\ManyToMany(targetEntity="TE\PlatformBundle\Entity\User", cascade={"persist"})
-    */
-    private $users;
+     * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $driver;
 
     /**
-    * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\Lift")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\Lift")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $lift;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="seats", type="integer")
-     */
-    private $seats;
 
     public function __construct()
     {
-      $this->users = new ArrayCollection();
     }
 
     /**
@@ -54,27 +48,6 @@ class Booked
     public function getId()
     {
         return $this->id;
-    }
-
-    // Notez le singulier, on ajoute une seule catégorie à la fois
-    public function addUser(User $user)
-    {
-      // Ici, on utilise l'ArrayCollection vraiment comme un tableau
-      $this->users[] = $user;
-
-      return $this;
-    }
-
-    public function removeUser(User $user)
-    {
-      // Ici on utilise une méthode de l'ArrayCollection, pour supprimer la catégorie en argument
-      $this->users->removeElement($user);
-    }
-
-    // Notez le pluriel, on récupère une liste de catégories ici !
-    public function getUsers()
-    {
-      return $this->users;
     }
 
     public function setLift(Lift $lift)
@@ -89,26 +62,16 @@ class Booked
       return $this->lift;
     }
 
-    /**
-     * Set seats
-     *
-     * @param integer $seats
-     * @return Booked
-     */
-    public function setSeats($seats)
+    public function setDriver(User $user)
     {
-        $this->seats = $seats;
+      $this->driver = $user;
 
-        return $this;
+      return $this;
     }
 
-    /**
-     * Get seats
-     *
-     * @return integer
-     */
-    public function getSeats()
+    public function getDriver()
     {
-        return $this->seats;
+      return $this->driver;
     }
+
 }

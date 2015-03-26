@@ -3,7 +3,9 @@
 namespace TE\PlatformBundle\Controller;
 
 use TE\PlatformBundle\Entity\Lift;
-use TE\UserBundle\Entity\User;
+use TE\PlatformBundle\Entity\Booked;
+use TE\PlatformBundle\Entity\User;
+use TE\PlatformBundle\Entity\BookedPassenger;
 use TE\PlatformBundle\Form\AddLiftType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +29,7 @@ class LiftController extends Controller
      */
     public function addAction(Request $request)
     {
+      $user = $this->get('security.context')->getToken()->getUser();
       $lift = new Lift();
 
       $form = $this->createForm(new AddLiftType(), $lift);
@@ -38,9 +41,13 @@ class LiftController extends Controller
       if ($form->handleRequest($request)->isValid()) {
         // On l'enregistre notre objet $advert dans la base de données, par exemple
         $em = $this->getDoctrine()->getManager();
-        $user = $this->get('security.context')->getToken()->getUser();
-        $lift->setUser($user);
+        $lift->setDriver($user);
         $em->persist($lift);
+
+        $booked = new Booked();
+        $booked->setDriver($user);
+        $booked->setLift($lift);
+
         $em->flush();
 
         $request->getSession()->getFlashBag()->add('notice', 'Trajet bien enregistrée.');
@@ -59,11 +66,32 @@ class LiftController extends Controller
 
     public function viewAction(Request $request, $id)
     {
+        $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
+
+        $liftRepository = $em->getRepository('TEPlatformBundle:Lift');
+        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
+        $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
+
         $lift = $liftRepository->find($id);
-        $subscribe = true;
-        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'subscribed' => $subscribe));
+        $booked = $bookedRepository->findByLift($lift);
+
+        $isDriver = false;
+        $isSubscribed = false;
+        $passengers = array();
+        if ($booked->getDriver() == $user) {
+            $isDriver = true;
+            $listBookedPassenger = $bookedPassengerRepository->findBybooked($booked);
+            foreach ($listBookedPassenger as $bookedPassenger) {
+              $passengers[$bookedPassenger->getPassenger()] = $bookedPassenger->getSeats();
+            }
+        } else {
+          $isSubscribed = true;
+        }
+
+
+        $isSubscribed = true;
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'isSubscribed' => $isSubscribed));
     }
 
     public function subscribeAction(Request $request)

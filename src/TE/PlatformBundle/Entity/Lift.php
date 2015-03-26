@@ -28,7 +28,7 @@ class Lift
      * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $user;
+    private $driver;
 
     /**
      * @var string
@@ -102,16 +102,16 @@ class Lift
         return $this->id;
     }
 
-    public function setUser(User $user)
+    public function setDriver(User $user)
     {
-      $this->user = $user;
+      $this->driver = $user;
 
       return $this;
     }
 
-    public function getUser()
+    public function getDriver()
     {
-      return $this->user;
+      return $this->driver;
     }
 
     /**
