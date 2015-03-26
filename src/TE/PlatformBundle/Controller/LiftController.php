@@ -62,7 +62,8 @@ class LiftController extends Controller
         $em = $this->getDoctrine()->getManager();
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
         $lift = $liftRepository->find($id);
-        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift));
+        $subscribe = true;
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'subscribe' => $subscribe));
     }
 
     public function subscribeAction(Request $request)
