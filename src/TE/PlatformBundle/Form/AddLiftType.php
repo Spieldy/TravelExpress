@@ -18,7 +18,7 @@ class AddLiftType extends AbstractType
             ->add('fromCity', 'text')
             ->add('toCity', 'text')
             ->add('dateLift', 'datetime')
-            ->add('price', 'number', array('precision' => '2'))
+            ->add('price', 'number')
             ->add('seats', 'integer')
             ->add('Enregistrer', 'submit')
         ;

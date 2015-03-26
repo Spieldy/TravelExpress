@@ -17,3 +17,7 @@ te_lift_remove:
     defaults: { _controller: TEPlatformBundle:Lift:remove }
     requirements:
       id:   \d
+
+te_lift_view:
+  path: /lift/view/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:view }

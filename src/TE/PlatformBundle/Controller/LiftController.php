@@ -56,4 +56,12 @@ class LiftController extends Controller
         'form' => $form->createView(),
       ));
     }
+
+    public function viewAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
+        $lift = $liftRepository->find($id)
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift));
+    }
   }
