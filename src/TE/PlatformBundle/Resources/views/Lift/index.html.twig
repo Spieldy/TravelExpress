@@ -18,7 +18,9 @@
       {% for lift in lifts %}
         <li>
             <article class="Lift">
-                <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+                <a href="{{ path('te_lift_view') }}/{{lift.id}}">
+                  <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+                </a>
                 <p class="LiftText">
                     <span class="Date">Date :{{lift.dateLift|date('Y-m-d H:i')}}</span><br>
                     <span class="Places">Places disponibles : {{lift.seats}}</span><br>
