@@ -4,6 +4,7 @@ namespace TE\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use TE\PlatformBundle\Entity\User;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -33,6 +34,7 @@ class Lift
      * @var string
      *
      * @ORM\Column(name="fromCity", type="string", length=255)
+     * @Assert\Length(min=3)
      */
     private $fromCity;
 
@@ -40,6 +42,7 @@ class Lift
      * @var string
      *
      * @ORM\Column(name="toCity", type="string", length=255)
+     * @Assert\Length(min=3)
      */
     private $toCity;
 
@@ -47,6 +50,7 @@ class Lift
      * @var \DateTime
      *
      * @ORM\Column(name="dateLift", type="datetime")
+     * @Assert\DateTime()
      */
     private $dateLift;
 
@@ -54,6 +58,12 @@ class Lift
      * @var string
      *
      * @ORM\Column(name="price", type="decimal")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 500,
+     *      minMessage = "Vous devez saisir une valeur positive",
+     *      maxMessage = "Vous ne devez pas dépasser 500 pour le tarif"
+     * )
      */
     private $price;
 
@@ -61,6 +71,12 @@ class Lift
      * @var integer
      *
      * @ORM\Column(name="seats", type="integer")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 6,
+     *      minMessage = "Vous devez saisir une valeur positive",
+     *      maxMessage = "Vous ne devez pas dépasser 6 places"
+     * )
      */
     private $seats;
 
@@ -72,6 +88,10 @@ class Lift
     private $isAvailable = true;
 
 
+    public function __construct()
+    {
+      $this->dateLift = new \DateTime();
+    }
     /**
      * Get id
      *
