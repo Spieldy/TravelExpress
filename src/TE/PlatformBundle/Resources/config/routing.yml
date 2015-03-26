@@ -21,3 +21,11 @@ te_lift_remove:
 te_lift_view:
   path: /lift/view/{id}
   defaults: { _controller: TEPlatformBundle:Lift:view }
+
+te_booked_subscribe:
+  path: /booked/subscribe/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:subscribe }
+
+te_booked_unscubscribe:
+  path: /booked/unscubscribe/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:unscubscribe }

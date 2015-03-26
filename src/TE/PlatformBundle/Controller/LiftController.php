@@ -64,4 +64,14 @@ class LiftController extends Controller
         $lift = $liftRepository->find($id);
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift));
     }
+
+    public function subscribeAction(Request $request)
+    {
+        return $this->render('index.html.twig');
+    }
+
+    public function unsubscribeAction(Request $request)
+    {
+        return $this->render('index.html.twig');
+    }
   }
