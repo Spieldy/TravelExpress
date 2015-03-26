@@ -1,6 +1,7 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block body %}
+<<<<<<< HEAD
   <form action="" class="Search autogrid3">
       <div>
       <label for="depart" class="hidden">Ville de départ</label>
@@ -27,3 +28,35 @@
       </li>
   </ul>
 {% endblock %}
+=======
+	<form action="" class="Search autogrid3">
+	    <div>
+	    <label for="depart" class="hidden">Ville de départ</label>
+	    <input type="text" placeholder="Ville de départ" id="depart">
+	    </div>
+
+	    <div>
+	    <label for="arivee" class="hidden">Ville d'arrivée</label>
+	    <input type="text" placeholder="Ville d'arrivée" id="arivee">
+	    </div>
+
+	    <div>
+	    <input type="submit" class="Btn" value="Rechercher">
+	    </div>
+	</form>
+	<ul class="Lifts">
+	    {% for lift in lifts %}
+		    <li>
+		        <article class="Lift">
+		            <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+		            <p class="LiftText">
+		                <span class="Date">Date :{{lift.dateLift|date('Y-m-d H:i')}}</span><br>
+		                <span class="Places">Places disponibles : 3</span><br>
+		                <span class="Price">Prix total : {{lift.price}}</span>
+		            </p>
+		        </article>
+		    </li>
+		{% endfor %}
+	</ul>
+{% endblock %}
+>>>>>>> 9de26e1afae535dd3a215823282f99b921a974d4
