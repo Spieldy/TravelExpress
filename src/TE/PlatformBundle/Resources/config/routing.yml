@@ -26,6 +26,6 @@ te_booked_subscribe:
   path: /booked/subscribe/{id}
   defaults: { _controller: TEPlatformBundle:Lift:subscribe }
 
-te_booked_unscubscribe:
+te_booked_unsubscribe:
   path: /booked/unscubscribe/{id}
   defaults: { _controller: TEPlatformBundle:Lift:unscubscribe }

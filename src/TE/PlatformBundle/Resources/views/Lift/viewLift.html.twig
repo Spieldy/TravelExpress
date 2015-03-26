@@ -10,11 +10,11 @@
         <span class="Places">Places disponibles : {{lift.seats}}</span><br>
         <span class="Price">Prix total : {{lift.price}}</span>
     </p>
-    {{% if subscribed %}}
+    {% if subscribed %}
 	    <a href="{{ path('te_booked_unsubscribe', {'id':lift.id})}}">Se désinscrire</a>
-	{{% else %}}
+	{% else %}
 		<a href="{{ path('te_booked_subscribe', {'id':lift.id})}}">S'inscriroe</a>
-	{{% endif %}}
+	{% endif %}
 </article>
 
 {% endblock %}
