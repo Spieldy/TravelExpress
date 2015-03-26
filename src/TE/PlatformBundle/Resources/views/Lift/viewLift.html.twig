@@ -1,0 +1,20 @@
+{% extends "TEPlatformBundle:Core:layout.html.twig" %}
+
+{% block body %}
+<article class="Lift">
+    <a href="{{ path('te_lift_view', {'id':lift.id})}}">
+      <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+    </a>
+    <p class="LiftText">
+        <span class="Date">Date :{{lift.dateLift|date('Y-m-d H:i')}}</span><br>
+        <span class="Places">Places disponibles : {{lift.seats}}</span><br>
+        <span class="Price">Prix total : {{lift.price}}</span>
+    </p>
+    {{% if subscribed %}}
+	    <a href="{{ path('te_booked_unsubscribe', {'id':lift.id})}}">Se désinscrire</a>
+	{{% else %}}
+		<a href="{{ path('te_booked_subscribe', {'id':lift.id})}}">S'inscriroe</a>
+	{{% endif %}}
+</article>
+
+{% endblock %}
