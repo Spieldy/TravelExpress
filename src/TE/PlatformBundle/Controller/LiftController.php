@@ -47,6 +47,7 @@ class LiftController extends Controller
         $booked = new Booked();
         $booked->setDriver($user);
         $booked->setLift($lift);
+        $em->persist($booked);
 
         $em->flush();
 
@@ -74,7 +75,7 @@ class LiftController extends Controller
         $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
 
         $lift = $liftRepository->find($id);
-        $booked = $bookedRepository->findByLift($lift);
+        $booked = $bookedRepository->findOneByLift($lift);
 
         $isDriver = false;
         $isSubscribed = false;
@@ -89,13 +90,12 @@ class LiftController extends Controller
           $isSubscribed = true;
         }
 
-
-        $isSubscribed = true;
-        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'isSubscribed' => $isSubscribed));
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver));
     }
 
     public function subscribeAction(Request $request)
     {
+
         return $this->render('index.html.twig');
     }
 

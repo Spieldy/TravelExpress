@@ -3,7 +3,7 @@
 namespace TE\PlatformBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use TE\UserBundle\Entity\User;
+use TE\PlatformBundle\Entity\User;
 
 
 /**

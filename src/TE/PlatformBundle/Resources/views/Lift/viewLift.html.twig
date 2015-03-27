@@ -10,11 +10,14 @@
         <span class="Places">Places disponibles : {{lift.seats}}</span><br>
         <span class="Price">Prix total : {{lift.price}}</span>
     </p>
-    {% if subscribed %}
-	    <a href="{{ path('te_booked_unsubscribe', {'id':lift.id})}}">Se désinscrire</a>
-	{% else %}
-		<a href="{{ path('te_booked_subscribe', {'id':lift.id})}}">S'inscriroe</a>
-	{% endif %}
+    {% if isDriver %}
+    {% else %}
+      {% if isSubscribed %}
+        <a href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
+      {% else %}
+        <a href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
+      {% endif %}
+    {% endif %}
 </article>
 
 {% endblock %}
