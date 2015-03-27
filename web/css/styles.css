@@ -59,6 +59,17 @@ body {
 		}
 
 /** UI */
+.connexionForm {
+	width:300px;
+	margin: 0 auto;
+}
+.connexionForm > input[type="text"],
+.connexionForm > input[type="password"],
+.connexionForm > input[type="submit"] {
+	width: 100%;
+	margin: .5rem;
+}
+
 input,
 .Btn {
 	border-radius: 2px;
@@ -66,11 +77,14 @@ input,
 	padding: 1rem;
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="password"]{
 	box-shadow: inset 0px 0px 2px #000;
 }
 input[type="text"]:active,
-input[type="text"]:focus{
+input[type="text"]:focus,
+input[type="password"]:active,
+input[type="password"]:focus{
 	box-shadow: inset 0px 0px 4px #000;
 }
 
