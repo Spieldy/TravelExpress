@@ -3,6 +3,7 @@
 body {
 	font-size: 1.8rem;
 }
+
 a {
 	text-decoration: none;
 }
@@ -66,6 +67,12 @@ a {
 	.Lift.details {
 		padding-bottom: 1rem;
 	}
+	.LiftAdditionalInfos {
+		border-top: 1px dotted #333;
+		
+		padding: 1rem;
+		
+	}
 
 /** UI */
 .connexionForm {
@@ -104,19 +111,14 @@ input[type="email"]:focus{
 	color:#EFEFEF;
 	background-color: #666;
 	text-decoration: none;
-}
-.LiftNavigation {
-	float: right;
-}
-
-.Btn:active,
-.Btn:hover,
-.Btn:focus {
-	background-color: #333;
-}
+	}
+	.Btn:active,
+	.Btn:hover,
+	.Btn:focus {
+		background-color: #333;
+	}
 
 /** Tools */
-
 .hidden {
 	display: none;
 }	

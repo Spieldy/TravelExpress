@@ -86,7 +86,7 @@ class LiftController extends Controller
             $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
             foreach ($listBookedPassenger as $bookedPassenger) {
               $passenger['user'] = $bookedPassenger->getPassenger();
-              $passenger['seats'] = $bookedPassenger->getSeats
+              $passenger['seats'] = $bookedPassenger->getSeats();
               $passengers[] = $passenger;
             }
         } else {
