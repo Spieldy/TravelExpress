@@ -1,10 +1,5 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block content %}
-<h3>Formulaire d'annonce</h3>
-
-<div class="well">
-  {{ form(form) }}
-</div>
-
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
 {% endblock %}
