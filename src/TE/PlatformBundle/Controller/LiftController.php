@@ -52,7 +52,7 @@ class LiftController extends Controller
 
         $em->flush();
 
-        $request->getSession()->getFlashBag()->add('notice', 'Trajet bien enregistrée.');
+        $request->getSession()->getFlashBag()->add('notice', 'Trajet bien enregistrée');
 
         // On redirige vers la page de visualisation de l'annonce nouvellement créée
         return $this->redirect($this->generateUrl('te_platform_homepage'));
@@ -80,25 +80,51 @@ class LiftController extends Controller
 
         $isDriver = false;
         $isSubscribed = false;
+        $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
         $passengers = array();
         if ($booked->getDriver() == $user) {
             $isDriver = true;
-            $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
             foreach ($listBookedPassenger as $bookedPassenger) {
               $passenger['user'] = $bookedPassenger->getPassenger();
               $passenger['seats'] = $bookedPassenger->getSeats();
               $passengers[] = $passenger;
             }
         } else {
-          $isSubscribed = true;
+            foreach ($listBookedPassenger as $bookedPassenger) {
+              if ($bookedPassenger->getPassenger() == $user) {
+                $isSubscribed = true;
+                break;
+              }
+            }
         }
 
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver, 'passengers' => $passengers));
     }
 
-    public function subscribeAction(Request $request, $idBooked)
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function subscribeAction(Request $request, $id)
     {
-        return $this->render('index.html.twig');
+        $request = $this->get('request');
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
+        $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
+
+        if( $request->getMethod() == 'POST' ) {
+          $seats = $request->get('seats');
+          $bookedPassenger = new BookedPassenger();
+          $bookedPassenger->setPassenger($user);
+          $bookedPassenger->setBooked($booked);
+          $bookedPassenger->setSeats($seats);
+          $em->persist($bookedPassenger);
+          $em->flush();
+        }
+        $idLift = $booked->getLift()->getId();
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $idLift));
+
+        return $response;
     }
 
     public function unsubscribeAction(Request $request)
