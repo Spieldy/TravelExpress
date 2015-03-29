@@ -7,6 +7,7 @@ use TE\PlatformBundle\Entity\Booked;
 use TE\PlatformBundle\Entity\User;
 use TE\PlatformBundle\Entity\BookedPassenger;
 use TE\PlatformBundle\Form\AddLiftType;
+use TE\PlatformBundle\Form\AddPassengerType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -95,9 +96,8 @@ class LiftController extends Controller
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver, 'passengers' => $passengers));
     }
 
-    public function subscribeAction(Request $request)
+    public function subscribeAction(Request $request, $idBooked)
     {
-
         return $this->render('index.html.twig');
     }
 
