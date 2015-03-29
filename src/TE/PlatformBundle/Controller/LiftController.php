@@ -90,7 +90,7 @@ class LiftController extends Controller
           $isSubscribed = true;
         }
 
-        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver));
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver, 'passengers' => $passengers));
     }
 
     public function subscribeAction(Request $request)
