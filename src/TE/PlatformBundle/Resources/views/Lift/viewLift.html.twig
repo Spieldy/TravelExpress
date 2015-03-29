@@ -11,12 +11,12 @@
     </p>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-      <div class="BtnNewLine">
+      <div class="LiftAdditionalInfos">
         {% if isDriver %}
           <h3>Passagers inscrits</h3>
           <ul>
             {% for passenger in passengers %}
-              {{passenger.username}} pour {{passenger.seats}} sièges. (<a href="mailto:{{passenger.email}}">contacter</a>)
+              <li><a href="mailto:{{passenger.user.email}}">{{passenger.user.username}}</a> pour {{passenger.seats}} sièges</li>
             {% endfor %}
           </ul>
         {% else %}
@@ -25,6 +25,7 @@
           {% else %}
             <a class="Btn" href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
           {% endif %}
+          
         {% endif %}
       </div>
     {% else %}
