@@ -82,9 +82,11 @@ class LiftController extends Controller
         $passengers = array();
         if ($booked->getDriver() == $user) {
             $isDriver = true;
-            $listBookedPassenger = $bookedPassengerRepository->findBybooked($booked);
+            $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
             foreach ($listBookedPassenger as $bookedPassenger) {
-              $passengers[$bookedPassenger->getPassenger()] = $bookedPassenger->getSeats();
+              $passenger['user'] = $bookedPassenger->getPassenger();
+              $passenger['seats'] = $bookedPassenger->getSeats
+              $passengers[] = $passenger;
             }
         } else {
           $isSubscribed = true;
