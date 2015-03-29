@@ -3,6 +3,9 @@
 body {
 	font-size: 1.8rem;
 }
+a {
+	text-decoration: none;
+}
 
 /** Layout */
 .Header-nav,
@@ -15,8 +18,10 @@ body {
 /** Elements */
 .Header {
 	background-color: #333;
-	color:#EFEFEF;
-
+	/*
+	background: url('../bann2.JPG') no-repeat center center fixed;
+	background-size: cover;
+	*/
 }
 .Header a {
 	color:#EFEFEF;
@@ -58,6 +63,10 @@ body {
 			padding: 1rem;
 		}
 
+	.Lift.details {
+		padding-bottom: 1rem;
+	}
+
 /** UI */
 .connexionForm {
 	width:300px;
@@ -78,20 +87,28 @@ input,
 }
 
 input[type="text"],
-input[type="password"]{
+input[type="password"],
+input[type="email"]{
 	box-shadow: inset 0px 0px 2px #000;
 }
 input[type="text"]:active,
 input[type="text"]:focus,
 input[type="password"]:active,
-input[type="password"]:focus{
+input[type="password"]:focus,
+input[type="email"]:active,
+input[type="email"]:focus{
 	box-shadow: inset 0px 0px 4px #000;
 }
 
 .Btn {
 	color:#EFEFEF;
 	background-color: #666;
+	text-decoration: none;
 }
+.LiftNavigation {
+	float: right;
+}
+
 .Btn:active,
 .Btn:hover,
 .Btn:focus {

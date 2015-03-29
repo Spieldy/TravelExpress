@@ -1,23 +1,37 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block content %}
-<article class="Lift">
-    <a href="{{ path('te_lift_view', {'id':lift.id})}}">
-      <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
-    </a>
+<article class="Lift details">
+    <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+
     <p class="LiftText">
         <span class="Date">Date :{{lift.dateLift|date('Y-m-d H:i')}}</span><br>
         <span class="Places">Places disponibles : {{lift.seats}}</span><br>
         <span class="Price">Prix total : {{lift.price}}</span>
     </p>
-    {% if isDriver %}
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+      <div class="BtnNewLine">
+        {% if isDriver %}
+          <h3>Passagers inscrits</h3>
+          <ul>
+            {% for passenger in passengers %}
+              {{passenger.username}} pour {{passenger.seats}} sièges. (<a href="mailto:{{passenger.email}}">contacter</a>)
+            {% endfor %}
+          </ul>
+        {% else %}
+          {% if isSubscribed %}
+            <a class="Btn" href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
+          {% else %}
+            <a class="Btn" href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
+          {% endif %}
+        {% endif %}
+      </div>
     {% else %}
-      {% if isSubscribed %}
-        <a href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
-      {% else %}
-        <a href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
-      {% endif %}
+
     {% endif %}
+    
+    
 </article>
 
 {% endblock %}
