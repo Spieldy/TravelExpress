@@ -3,15 +3,16 @@
 {% block content %}
 <article class="Lift details">
     <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
-
     <p class="LiftText">
-        <span class="Date">Date :{{lift.dateLift|date('Y-m-d H:i')}}</span><br>
-        <span class="Places">Places disponibles : {{lift.seats}}</span><br>
-        <span class="Price">Prix total : {{lift.price}}</span>
+        Conducteur : {{lift.driver}} <span class="Eval positif">+3</span><br>
+        Date : {{lift.dateLift|date('Y-m-d H:i')}}<br>
+        Places disponibles : {{lift.seats}}<br>
+        Prix total : {{lift.price}}
     </p>
 
+    <div class="LiftAdditionalInfos">
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-      <div class="LiftAdditionalInfos">
+    
         {% if isDriver %}
           <h3>Passagers inscrits</h3>
           <ul>
@@ -32,11 +33,11 @@
           {% endif %}
 
         {% endif %}
-      </div>
+      
     {% else %}
-
+      <a class="Btn" href="{{ path('fos_user_registration_register') }}">Inscrivez vous pour réserver !</a>
     {% endif %}
-
+    </div>
 
 </article>
 
