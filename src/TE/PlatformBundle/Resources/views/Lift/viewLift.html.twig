@@ -27,7 +27,7 @@
             <a class="Btn" href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
 
             <form class="" action="{{ path('te_booked_subscribe', {'id':booked.id})}}" method="post">
-              <input type="range" value="1" max="6" min="1" step="1" name="seats" value="1">
+              <input type="number" value="1" max="6" min="1" step="1" name="seats" value="1">
               <input type="submit" name="name" value="Inscris toi gros">
             </form>
           {% endif %}

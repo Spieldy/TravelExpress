@@ -4,8 +4,10 @@
     <meta charset="utf-8">
 
     {% block stylesheets %}
+        <link href="{{ asset('bower_components/sweetalert/lib/sweet-alert.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('bower_components/knacss/css/knacss.css') }}" rel="stylesheet" />
+        
     {% endblock %}
 
 
@@ -45,7 +47,18 @@
       {% endblock %}
     </main>
 
+    <footer class="Footer">
+      <div class="FooterContent">
+        <div id="JsFlashBags" class="hidden">
+          {% for flashMessage in app.session.flashbag.get('notice') %}
+            {{ flashMessage }}
+          {% endfor %}
+        </div>
+      </div>
+    </footer>
+
     {% block javascripts %}
+        <script src="{{ asset('bower_components/sweetalert/lib/sweet-alert.min.js') }}"></script>
         <script src="{{ asset('bower_components/jquery/dist/jquery.js') }}"></script>
         <script src="{{ asset('js/chrome.js') }}"></script>
     {% endblock %}
