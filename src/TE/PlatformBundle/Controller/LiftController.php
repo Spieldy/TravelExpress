@@ -121,14 +121,30 @@ class LiftController extends Controller
           $em->persist($bookedPassenger);
           $em->flush();
         }
+
         $idLift = $booked->getLift()->getId();
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $idLift));
-
         return $response;
     }
 
-    public function unsubscribeAction(Request $request)
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function unsubscribeAction($id)
     {
-        return $this->render('index.html.twig');
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
+        $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
+
+        $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
+        $bookedPassenger = $bookedPassengerRepository->findOneBy(array("booked" => $booked, "passenger" => $user));
+
+        $em->remove($bookedPassenger);
+        $em->flush();
+
+        $idLift = $booked->getLift()->getId();
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $idLift));
+        return $response;
     }
   }
