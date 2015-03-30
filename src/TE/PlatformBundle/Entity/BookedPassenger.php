@@ -40,6 +40,13 @@ class BookedPassenger
      */
     private $booked;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="voted", type="integer")
+     */
+    private $voted = 0;
+
 
     /**
      * Get id
@@ -115,5 +122,29 @@ class BookedPassenger
     public function getBooked()
     {
         return $this->booked;
+    }
+
+
+    /**
+     * Set voted
+     *
+     * @param integer $voted
+     * @return BookedPassenger
+     */
+    public function setVoted($voted)
+    {
+        $this->voted = $voted;
+
+        return $this;
+    }
+
+    /**
+     * Get voted
+     *
+     * @return integer
+     */
+    public function getVoted()
+    {
+        return $this->voted;
     }
 }
