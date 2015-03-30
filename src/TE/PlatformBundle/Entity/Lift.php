@@ -232,7 +232,7 @@ class Lift
         return $this;
     }
 
-    public function getseats()
+    public function getSeats()
     {
         return $this->seats;
     }
