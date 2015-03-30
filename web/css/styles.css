@@ -64,24 +64,32 @@ a {
 			padding: 1rem;
 		}
 
-	.Lift.details {
-		padding-bottom: 1rem;
+	.Lift.LiftAdditionalInfos .Btn {
+		margin-top: 1rem;
 	}
 	.LiftAdditionalInfos {
-		border-top: 1px dotted #333;
-		
-		padding: 1rem;
-		
+		border-top: 1px dotted #333;		
+		padding: 2rem 1rem;
+	}
+
+.Eval {
+	font-style: italic;
+}
+	.Eval.positif {
+		color:green;
+	}
+	.Eval.negatif {
+		color:red;
 	}
 
 /** UI */
-.connexionForm {
+.ConnexionForm {
 	width:300px;
 	margin: 0 auto;
 }
-.connexionForm > input[type="text"],
-.connexionForm > input[type="password"],
-.connexionForm > input[type="submit"] {
+.ConnexionForm > input[type="text"],
+.ConnexionForm > input[type="password"],
+.ConnexionForm > input[type="submit"] {
 	width: 100%;
 	margin: .5rem;
 }
