@@ -12,4 +12,20 @@ use Doctrine\ORM\EntityRepository;
  */
 class LiftRepository extends EntityRepository
 {
+  public function findAvailableLiftByDate()
+  {
+    $qb = $this->createQueryBuilder('lift');
+
+    $qb->where('lift.isAvailable = :isAvailable')
+         ->setParameter('isAvailable', 1)
+       ->andWhere('lift.dateLift > :date')
+         ->setParameter('date', new \DateTime())
+       ->orderBy('lift.dateLift', 'ASC')
+    ;
+
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
 }

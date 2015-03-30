@@ -19,7 +19,7 @@ class LiftController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
-        $lifts = $liftRepository->findBy(array('isAvailable' => 1), array('dateLift' => 'asc'), null, null);
+        $lifts = $liftRepository->findAvailableLiftByDate();
 
         return $this->render('TEPlatformBundle:Lift:index.html.twig',array('lifts' => $lifts ));
 
