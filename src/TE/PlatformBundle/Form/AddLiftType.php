@@ -15,12 +15,36 @@ class AddLiftType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fromCity', 'text')
-            ->add('toCity', 'text')
-            ->add('dateLift', 'datetime')
-            ->add('price', 'number')
-            ->add('seats', 'integer')
-            ->add('Enregistrer', 'submit')
+            ->add('fromCity', 'text', array( 
+                'label'  => 'Ville de départ',
+                'attr'   =>  array(
+                    'placeholder'   => 'Ville de départ')
+                ))
+            ->add('toCity', 'text', array( 
+                'label'  => 'Ville d\'arrivée',
+                'attr'   =>  array(
+                    'placeholder'   => 'Ville d\'arrivée')
+                ))
+            ->add('dateLift', 'datetime', array( 
+                'label'  => 'Date de départ'
+                ))
+            ->add('price', 'number', array( 
+                'label'  => 'Prix',
+                'attr'   =>  array(
+                    'placeholder'   => 'Prix')
+                ))
+            ->add('seats', 'integer', array( 
+                'label'  => 'Places disponibles',
+                'attr'   =>  array(
+                    'placeholder'   => 'Places disponibles',
+                    'min' => '1',
+                    'max' => '6')
+                ))
+            ->add('Enregistrer', 'submit', array( 
+                'label'  => 'Publier votre lift',
+                'attr'   =>  array(
+                    'class'   => 'Btn')
+                ))
         ;
     }
 

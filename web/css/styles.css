@@ -113,27 +113,32 @@ a {
 	}
 
 /** Forms */
-.ConnexionForm {
-	width:300px;
-	margin: 0 auto;
-}
-.ConnexionForm > input[type="text"],
-.ConnexionForm > input[type="password"],
-.ConnexionForm > input[type="submit"] {
-	width: 100%;
-	margin: .5rem;
-}
+	.ConnexionForm {
+		width:300px;
+		margin: 0 auto;
+	}
+	.ConnexionForm > input[type="text"],
+	.ConnexionForm > input[type="password"],
+	.ConnexionForm > input[type="submit"] {
+		width: 100%;
+		margin: .5rem;
+	}
 
-.required + ul {
-	list-style: none;
-	color: red;
-	padding: 0;
-}
+	.required + ul {
+		list-style: none;
+		color: red;
+		padding: 0;
+	}
 
-.FormAddLift input,
-.FormAddLift select {
-	margin-bottom: 1rem;
-}
+	.FormAddLift input,
+	.FormAddLift select {
+		margin-bottom: 1rem;
+
+	}
+	.FormAddLift label {
+		display: none;
+	}
+
 
 /** UI */
 
