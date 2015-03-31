@@ -163,14 +163,20 @@ class LiftController extends Controller
             $seatsAvailable = $booked->getLift()->getSeats() - $nbSeats;
 
             if ($seats > $seatsAvailable) {
-                $request->getSession()->getFlashBag()->add('notice', 'Trop de passagers');
+                $request->getSession()->getFlashBag()->add('error', 'Trop de passagers');
             } else {
                 $bookedPassenger = new BookedPassenger();
                 $bookedPassenger->setPassenger($user);
                 $bookedPassenger->setBooked($booked);
                 $bookedPassenger->setSeats($seats);
+                if ($seats == $seatsAvailable) {
+                    $lift = $booked->getLift();
+                    $lift->setAvailable(0);
+                    $em->persist($lift);
+                }
                 $em->persist($bookedPassenger);
                 $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'Inscription au trajet bien enregistrée');
             }
         }
 
