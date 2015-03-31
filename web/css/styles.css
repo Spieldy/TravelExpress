@@ -50,58 +50,69 @@ a {
 .Search input {
 	width: 100%;
 }
-.Lifts {
-	list-style: none;
-	padding: 1rem 0;
-}
+
+/** Lifts */
+	.Lifts {
+		list-style: none;
+		padding: 1rem 0;
+	}
 	.Lift {
 		background-color: #EFEFEF;
 		border-radius: 2px;
 		overflow: hidden;
 		margin-bottom: 2rem;
 	}
-		.LiftTitle {
-			padding: 1rem;
-			margin: 0;
-			background-color: #CDCDCD;
-			border-bottom: 2px solid #888;
-		}
-		.LiftTitle-h2,
-		.details {
-			margin: 1rem;
-			line-height: 3rem;
-		}
-		.details {
-			float: right;
-		}
-		.LiftText {
-			font-size: 1.8rem;
-			padding: 1rem;
-		}
+	.LiftTitle {
+		padding: 1rem;
+		margin: 0;
+		background-color: #CDCDCD;
+		border-bottom: 2px solid #888;
+	}
+	.LiftTitle-h2,
+	.LiftIcons {
+		margin: 1rem;
+		line-height: 3rem;
+	}
+	.LiftIcons.bottom {
+		display: none;
+	}
+	.LiftIcons {
+		float: right;
+	}
+
+	.LiftIcons-span {
+		margin-right: 1rem;
+	}	
+
+/** One lift view */
+	.LiftText {
+		font-size: 1.8rem;
+		padding: 1rem;
+	}
 
 	.Lift.LiftAdditionalInfos .Btn {
 		margin-top: 1rem;
 	}
 	.LiftAdditionalInfos {
-		border-top: 1px dotted #333;		
 		padding: 2rem 1rem;
 	}
-
-.Eval {
-	font-style: italic;
-}
+/** Evals */
+	.Eval {
+		font-style: italic;
+	}
 	.Eval.positif {
 		color:green;
 	}
 	.Eval.negatif {
 		color:red;
 	}
-.FooterContent {
-	color:#fff;
-}
+
+/** Footer */
+	.FooterContent {
+		color:#fff;
+	}
 
 /** Forms */
-
 .ConnexionForm {
 	width:300px;
 	margin: 0 auto;
@@ -119,6 +130,11 @@ a {
 	padding: 0;
 }
 
+.FormAddLift input,
+.FormAddLift select {
+	margin-bottom: 1rem;
+}
+
 /** UI */
 
 input,
@@ -130,7 +146,8 @@ input,
 
 input[type="text"],
 input[type="password"],
-input[type="email"]{
+input[type="email"],
+input[type="number"]{
 	box-shadow: inset 0px 0px 2px #000;
 }
 input[type="text"]:active,
@@ -138,22 +155,51 @@ input[type="text"]:focus,
 input[type="password"]:active,
 input[type="password"]:focus,
 input[type="email"]:active,
-input[type="email"]:focus{
+input[type="email"]:focus,
+input[type="number"]:active,
+input[type="numer"]:focus{
 	box-shadow: inset 0px 0px 4px #000;
 }
 
 .Btn {
 	color:#EFEFEF;
-	background-color: #666;
+	background-color: #74B336;
 	text-decoration: none;
-	}
-	.Btn:active,
-	.Btn:hover,
-	.Btn:focus {
-		background-color: #333;
-	}
+	font-weight: bold;
+}
+.Btn:active,
+.Btn:hover,
+.Btn:focus {
+	color:#EFEFEF;
+	background-color: #333;
+
+}
 
 /** Tools */
 .hidden {
 	display: none;
 }	
+
+
+/** Animate */
+.Btn,
+input {
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-ms-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+
+@media(max-width:600px) {
+	.LiftIcons {
+		float: none;
+	}
+	.LiftIcons.top {
+		display: none;
+	}
+	.LiftIcons.bottom {
+		display: inherit;
+	}
+}

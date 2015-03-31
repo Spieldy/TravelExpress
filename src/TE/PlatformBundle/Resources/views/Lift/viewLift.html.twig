@@ -1,34 +1,37 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block content %}
-<article class="Lift details">
-    <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+<article>
+    <h2>{{lift.fromCity}} <i class="fa fa-long-arrow-right"></i> {{lift.toCity}}</h2>
     <p class="LiftText">
-        Conducteur : {{lift.driver}} <span class="Eval positif">+3</span><br>
-        Date : {{lift.dateLift|date('Y-m-d H:i')}}<br>
-        Places disponibles : {{lift.seats}}<br>
-        Prix total : {{lift.price}}
+        <i class="fa fa-car"></i> {{lift.driver}} <span class="Eval positif">+3</span><br>
+        <i class="fa fa-calendar"></i> {{lift.dateLift|date('Y-m-d H:i')}}<br>
+        <i class="fa fa-user"></i> {{lift.seats}}<br>
+        <i class="fa fa-usd"></i> {{lift.price}}
     </p>
 
     <div class="LiftAdditionalInfos">
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
     
         {% if isDriver %}
-          <h3>Passagers inscrits</h3>
-          <ul>
-            {% for passenger in passengers %}
-              <li><a href="mailto:{{passenger.user.email}}">{{passenger.user.username}}</a> pour {{passenger.seats}} sièges</li>
-            {% endfor %}
-          </ul>
+          {% if passengers %}
+            <h3>Passagers inscrits</h3>
+            <ul>
+              {% for passenger in passengers %}
+                <li><a href="mailto:{{passenger.user.email}}">{{passenger.user.username}}</a> pour {{passenger.seats}} sièges</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <h3>Aucun passager inscrit à votre lift</h3>
+          {% endif %}
+          
         {% else %}
           {% if isSubscribed %}
             <a class="Btn" href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
           {% else %}
-            <a class="Btn" href="{{ path('te_booked_subscribe', {'id':booked.id})}}">S'inscrire</a>
-
             <form class="" action="{{ path('te_booked_subscribe', {'id':booked.id})}}" method="post">
               <input type="number" value="1" max="6" min="1" step="1" name="seats" value="1">
-              <input type="submit" name="name" value="Inscris toi gros">
+              <input type="submit" name="name" value="Réserver" class="Btn">
             </form>
           {% endif %}
 
