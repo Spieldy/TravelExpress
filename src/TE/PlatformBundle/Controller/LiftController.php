@@ -40,6 +40,36 @@ class LiftController extends Controller
 
     }
 
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
+
+        if ($request->getMethod() == POST) {
+            $fromCity = $request->get('fromCity');
+            $toCity = $request->get('toCity');
+            $lifts = $liftRepository->findLiftByCity(strtolower($fromCity), strtolower($toCity));
+            $liftsSeats = array();
+            foreach ($lifts as $lift) {
+                $seatsAvailable = 0;
+                $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+                $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+                $nbSeats = 0;
+                foreach ($listBookedPassenger as $bookedPassenger) {
+                    $nbSeats += $bookedPassenger->getSeats();
+                }
+                $seatsAvailable = $lift->getSeats() - $nbSeats;
+                $tab['lift'] = $lift;
+                $tab['seats'] = $seatsAvailable;
+                $liftsSeats[] = $tab;
+            }
+
+            return $this->render('TEPlatformBundle:Lift:search.html.twig', array('lifts' => $liftsSeats));
+        } else {
+            return $this->forward('TEPlatformBundle:Lift:index');
+        }
+    }
+
     /**
      * @Security("has_role('ROLE_USER')")
      */
@@ -57,6 +87,8 @@ class LiftController extends Controller
       if ($form->handleRequest($request)->isValid()) {
         // On l'enregistre notre objet $advert dans la base de données, par exemple
         $em = $this->getDoctrine()->getManager();
+        $lift->setFromCity(strtolower($lift->getFromCity()));
+        $lift->setToCity(strtolower($lift->getToCity()));
         $lift->setDriver($user);
         $em->persist($lift);
 
@@ -205,15 +237,22 @@ class LiftController extends Controller
         return $response;
     }
 
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
     public function positiveAction($id)
     {
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
         return $response;
     }
 
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
     public function negativeAction($id)
     {
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
         return $response;
     }
+
   }

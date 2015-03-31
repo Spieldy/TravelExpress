@@ -15,12 +15,14 @@ class AddLiftType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fromCity', 'text', array( 
+            ->add('fromCity', 'text', array(
+                'trim'   =>  true,
                 'label'  => 'Ville de départ',
                 'attr'   =>  array(
                     'placeholder'   => 'Ville de départ')
                 ))
-            ->add('toCity', 'text', array( 
+            ->add('toCity', 'text', array(
+                'trim'   =>  true,
                 'label'  => 'Ville d\'arrivée',
                 'attr'   =>  array(
                     'placeholder'   => 'Ville d\'arrivée')

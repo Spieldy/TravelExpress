@@ -12,7 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class LiftRepository extends EntityRepository
 {
-  public function findAvailableLiftByDate()
+  public function findLiftByDate()
   {
     $qb = $this->createQueryBuilder('lift');
 
@@ -26,4 +26,17 @@ class LiftRepository extends EntityRepository
       ->getResult()
     ;
   }
+
+    public function findLiftByCity($fromCity, $toCity) {
+        $qb = $this->createQueryBuilder('lift');
+
+        $qb->Where('lift.fromCity == :fromCity')
+            ->setParameter('fromCity', $fromCity)
+           ->andWhere('lift.toCity == :toCity')
+            ->setParameter('toCity', $toCity)
+           ->andWhere('lift.dateLift > :date')
+            ->setParameter('date', new \DateTime())
+           ->orderBy('lift.dateLift', 'ASC')
+        ;
+    }
 }

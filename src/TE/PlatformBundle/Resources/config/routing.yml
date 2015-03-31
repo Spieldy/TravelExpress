@@ -1,22 +1,26 @@
 te_platform_homepage:
-    path:     /
-    defaults: { _controller: TEPlatformBundle:Lift:index }
+  path:     /
+  defaults: { _controller: TEPlatformBundle:Lift:index }
+
+te_lift_search:
+  path: /lift/search
+  defaults: { _controller: TEPlatformBundle:Lift:search }
 
 te_lift_add:
-    path:     /lift/add
-    defaults: { _controller: TEPlatformBundle:Lift:add }
+  path:     /lift/add
+  defaults: { _controller: TEPlatformBundle:Lift:add }
 
 te_lift_edit:
-    path:     /lift/edit/{id}
-    defaults: { _controller: TEPlatformBundle:Lift:edit }
-    requirements:
-      id:   \d
+  path:     /lift/edit/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:edit }
+  requirements:
+    id:   \d
 
 te_lift_remove:
-    path:     /lift/remove/{id}
-    defaults: { _controller: TEPlatformBundle:Lift:remove }
-    requirements:
-      id:   \d
+  path:     /lift/remove/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:remove }
+  requirements:
+    id:   \d
 
 te_lift_view:
   path: /lift/view/{id}
