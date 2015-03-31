@@ -1,10 +1,24 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block content %}
-<article>
+<article class="Lift
+  {% if lift.isAvailable %}
+    ">
+  {% else %}
+    notAviable">
+    <div class="Complete">
+      complet !
+    </div>
+  {% endif %}
     <h2>{{lift.fromCity}} <i class="fa fa-long-arrow-right"></i> {{lift.toCity}}</h2>
     <p class="LiftText">
-        <i class="fa fa-car"></i> {{lift.driver}} <span class="Eval positif">+3</span><br>
+        <i class="fa fa-car"></i> <span class="Name">{{lift.driver}}</span>
+          <span class="Eval positif">3</span>
+          <span class="Notation">
+            <a href="{{ path('te_eval_positive', {'id':lift.id})}}"><i class="fa fa-plus"></i></a>
+            <a href="{{ path('te_eval_negative', {'id':lift.id})}}"><i class="fa fa-minus"></i></a>
+          </span>
+          <br>
         <i class="fa fa-calendar"></i> {{lift.dateLift|date('Y-m-d H:i')}}<br>
         <i class="fa fa-user"></i> {{seatsAvailable}}<br>
         <i class="fa fa-usd"></i> {{lift.price}}
@@ -24,15 +38,17 @@
           {% else %}
             <h3>Aucun passager inscrit à votre lift</h3>
           {% endif %}
-          
         {% else %}
+
           {% if isSubscribed %}
             <a class="Btn" href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
           {% else %}
-            <form class="" action="{{ path('te_booked_subscribe', {'id':booked.id})}}" method="post">
-              <input type="number" value="1" max="6" min="1" step="1" name="seats" value="1">
-              <input type="submit" name="name" value="Réserver" class="Btn">
-            </form>
+            {% if lift.isAvailable %}
+              <form class="" action="{{ path('te_booked_subscribe', {'id':booked.id})}}" method="post">
+                <input type="number" value="1" max="6" min="1" step="1" name="seats" value="1">
+                <input type="submit" name="name" value="Réserver" class="Btn">
+              </form>
+            {% endif %}
           {% endif %}
 
         {% endif %}
