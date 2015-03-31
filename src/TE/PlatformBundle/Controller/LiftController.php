@@ -49,10 +49,10 @@ class LiftController extends Controller
             $fromCity = $request->get('fromCity');
             $toCity = $request->get('toCity');
             $lifts = $liftRepository->findLiftByCity(strtolower($fromCity), strtolower($toCity));
-            if (empty($lifts))
+            if (empty($lifts)) {
                 $request->getSession()->getFlashBag()->add('error', 'Pas de trajet correspondant à votre recherhce');
                 return $this->forward('TEPlatformBundle:Lift:index');
-            else {
+            } else {
                 $liftsSeats = array();
                 foreach ($lifts as $lift) {
                     $seatsAvailable = 0;
