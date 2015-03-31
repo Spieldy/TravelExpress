@@ -171,7 +171,7 @@ class LiftController extends Controller
                 $bookedPassenger->setSeats($seats);
                 if ($seats == $seatsAvailable) {
                     $lift = $booked->getLift();
-                    $lift->setAvailable(0);
+                    $lift->setIsAvailable(0);
                     $em->persist($lift);
                 }
                 $em->persist($bookedPassenger);
