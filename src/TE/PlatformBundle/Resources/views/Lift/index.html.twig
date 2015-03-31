@@ -1,14 +1,14 @@
 {% extends "TEPlatformBundle:Core:layout.html.twig" %}
 
 {% block content %}
-  <form action="{{ path('te_lift_search')}}" class="Search autogrid3">
+  <form action="{{ path('te_lift_search')}}" method='post' class="Search autogrid3">
       <div>
-      <label name="fromCity"for="depart" class="hidden">Ville de départ</label>
-      <input type="text" placeholder="Ville de départ" id="depart">
+      <label for="depart" class="hidden">Ville de départ</label>
+      <input type="text" name="fromCity" placeholder="Ville de départ" id="depart">
       </div>
       <div>
-      <label name="toCity"for="arivee" class="hidden">Ville d'arrivée</label>
-      <input type="text" placeholder="Ville d'arrivée" id="arivee">
+      <label for="arrivee" class="hidden">Ville d'arrivée</label>
+      <input type="text" name="toCity" placeholder="Ville d'arrivée" id="arrivee">
       </div>
       <div>
       <input type="submit" class="Btn" value="Rechercher">

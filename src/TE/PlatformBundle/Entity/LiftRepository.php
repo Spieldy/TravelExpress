@@ -27,16 +27,22 @@ class LiftRepository extends EntityRepository
     ;
   }
 
-    public function findLiftByCity($fromCity, $toCity) {
+    public function findLiftByCity($fromCity, $toCity)
+    {
         $qb = $this->createQueryBuilder('lift');
 
-        $qb->Where('lift.fromCity == :fromCity')
+        $qb->Where('lift.fromCity = :fromCity')
             ->setParameter('fromCity', $fromCity)
-           ->andWhere('lift.toCity == :toCity')
+           ->andWhere('lift.toCity = :toCity')
             ->setParameter('toCity', $toCity)
            ->andWhere('lift.dateLift > :date')
             ->setParameter('date', new \DateTime())
            ->orderBy('lift.dateLift', 'ASC')
+        ;
+
+        return $qb
+            ->getQuery()
+            ->getResult()
         ;
     }
 }

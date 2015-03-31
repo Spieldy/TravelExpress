@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="28eda2b2-fd66-4cae-8c38-e2d8526c6e72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/LiftRepository.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/LiftRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/search.html.twig" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/search.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TravelExpress.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +34,18 @@
       <file leaf-file-name="LiftController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43714285" vertical-offset="561" max-vertical-offset="4420">
-              <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.3642857" vertical-offset="544" max-vertical-offset="4505">
+              <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/search.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="136">
+              <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -40,17 +54,9 @@
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="850">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
               <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding>
-                <marker date="1427823618000" expanded="true" signature="0:93" placeholder="te_platform_homepage:" />
-                <marker date="1427823618000" expanded="true" signature="94:189" placeholder="te_lift_search:" />
-                <marker date="1427823618000" expanded="true" signature="133:186" placeholder="defaults:" />
-                <marker date="1427823618000" expanded="true" signature="190:280" placeholder="te_lift_add:" />
-                <marker date="1427823618000" expanded="true" signature="872:978" placeholder="te_eval_positive:" />
-                <marker date="1427823618000" expanded="true" signature="979:1085" placeholder="te_eval_negative:" />
-                <marker date="1427823618000" expanded="true" signature="1027:1082" placeholder="defaults:" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -58,8 +64,8 @@
       <file leaf-file-name="LiftRepository.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Entity/LiftRepository.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.384615" vertical-offset="65" max-vertical-offset="816">
-              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+            <state vertical-scroll-proportion="-19.73077" vertical-offset="167" max-vertical-offset="918">
+              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -68,8 +74,18 @@
       <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.76923" vertical-offset="235" max-vertical-offset="935">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="935">
+              <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addLift.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/addLift.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="255">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -88,7 +104,7 @@
       <file leaf-file-name="viewLift.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3076923" vertical-offset="136" max-vertical-offset="1173">
+            <state vertical-scroll-proportion="11.653846" vertical-offset="473" max-vertical-offset="1173">
               <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
@@ -104,10 +120,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig" />
-        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Form/AddLiftType.php" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/LiftRepository.php" />
+        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/search.html.twig" />
+        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
       </list>
     </option>
@@ -225,6 +242,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelExpress" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TravelExpress" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TE" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PlatformBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lift" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -445,38 +496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.76923" vertical-offset="235" max-vertical-offset="935">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3076923" vertical-offset="136" max-vertical-offset="1173">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="850">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <marker date="1427823618000" expanded="true" signature="0:93" placeholder="te_platform_homepage:" />
-            <marker date="1427823618000" expanded="true" signature="94:189" placeholder="te_lift_search:" />
-            <marker date="1427823618000" expanded="true" signature="133:186" placeholder="defaults:" />
-            <marker date="1427823618000" expanded="true" signature="190:280" placeholder="te_lift_add:" />
-            <marker date="1427823618000" expanded="true" signature="872:978" placeholder="te_eval_positive:" />
-            <marker date="1427823618000" expanded="true" signature="979:1085" placeholder="te_eval_negative:" />
-            <marker date="1427823618000" expanded="true" signature="1027:1082" placeholder="defaults:" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Form/AddLiftType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="9.692307" vertical-offset="524" max-vertical-offset="1258">
@@ -485,18 +504,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="850">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/addLift.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="726">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Entity/LiftRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.384615" vertical-offset="65" max-vertical-offset="816">
-          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+        <state vertical-scroll-proportion="-19.73077" vertical-offset="167" max-vertical-offset="918">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.653846" vertical-offset="473" max-vertical-offset="1173">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/search.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="700">
+          <caret line="0" column="33" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="935">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43714285" vertical-offset="561" max-vertical-offset="4420">
-          <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.3642857" vertical-offset="544" max-vertical-offset="4505">
+          <caret line="56" column="38" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
           <folding />
         </state>
       </provider>

@@ -42,15 +42,20 @@ class LiftController extends Controller
 
     public function searchAction(Request $request)
     {
+        $request = $this->get('request');
         $em = $this->getDoctrine()->getManager();
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
 
-        if ($request->getMethod() == POST) {
+        if ($request->getMethod() == 'POST') {
             $fromCity = $request->get('fromCity');
             $toCity = $request->get('toCity');
+            if ($fromCity == "" || $toCity == "") {
+                $request->getSession()->getFlashBag()->add('error', 'Recherche invalide');
+                return $this->forward('TEPlatformBundle:Lift:index');
+            }
             $lifts = $liftRepository->findLiftByCity(strtolower($fromCity), strtolower($toCity));
-            if (empty($lifts)) {
-                $request->getSession()->getFlashBag()->add('error', 'Pas de trajet correspondant à votre recherhce');
+            if (count($lifts) == 0 ) {
+                $request->getSession()->getFlashBag()->add('error', 'Pas de trajet correspondant à votre recherche');
                 return $this->forward('TEPlatformBundle:Lift:index');
             } else {
                 $liftsSeats = array();
