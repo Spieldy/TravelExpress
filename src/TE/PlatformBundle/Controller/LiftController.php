@@ -230,7 +230,7 @@ class LiftController extends Controller
     /**
      * @Security("has_role('ROLE_USER')")
      */
-    public function unsubscribeAction($id)
+    public function unsubscribeAction(Request $request, $id)
     {
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
@@ -238,9 +238,15 @@ class LiftController extends Controller
 
         $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
         $bookedPassenger = $bookedPassengerRepository->findOneBy(array("booked" => $booked, "passenger" => $user));
+        if ($booked->getLift()->getIsAvailable() == 0) {
+            $booked->getLift()->setIsAvailable(1);
+            $em->persist($booked->getLift());
+        }
 
         $em->remove($bookedPassenger);
         $em->flush();
+
+        $request->getSession()->getFlashBag()->add('notice', 'Désinscription au trajet réussie');
 
         $idLift = $booked->getLift()->getId();
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $idLift));
