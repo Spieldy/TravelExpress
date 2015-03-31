@@ -20,8 +20,23 @@ class LiftController extends Controller
         $em = $this->getDoctrine()->getManager();
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
         $lifts = $liftRepository->findAvailableLiftByDate();
+        $liftsSeats = array();
+        foreach ($lifts as $lift) {
+            $seatsAvailable = 0;
+            $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+            $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+            $nbSeats = 0;
+            foreach ($listBookedPassenger as $bookedPassenger) {
+                $nbSeats += $bookedPassenger->getSeats();
+            }
+            $seatsAvailable = $lift->getSeats() - $nbSeats;
+            $tab['lift'] = $lift;
+            $tab['seats'] = $seatsAvailable;
+            $liftsSeats[] = $tab;
+        }
 
-        return $this->render('TEPlatformBundle:Lift:index.html.twig',array('lifts' => $lifts ));
+
+        return $this->render('TEPlatformBundle:Lift:index.html.twig', array('lifts' => $liftsSeats ));
 
     }
 
@@ -61,7 +76,8 @@ class LiftController extends Controller
       // À ce stade, le formulaire n'est pas valide car :
       // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
       // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
-      return $this->render('TEPlatformBundle:Lift:addLift.html.twig', array(
+      return $this->render('TEPlatformBundle:Lift:addLift.html.twig',
+      array(
         'form' => $form->createView(),
       ));
     }
@@ -81,9 +97,24 @@ class LiftController extends Controller
         $isDriver = false;
         $isSubscribed = false;
         $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
+        $nbSeats = 0;
+        foreach ($listBookedPassenger as $bookedPassenger) {
+            $nbSeats += $bookedPassenger->getSeats();
+        }
+        $seatsAvailable = $lift->getSeats() - $nbSeats;
+
         $passengers = array();
+        $evaluation = 0;
+        $isPositive = true;
+
         if ($booked->getDriver() == $user) {
             $isDriver = true;
+            $evaluation = $user->getPositive() - $user->getNegative();
+            if($evaluation >= 0) {
+              $isPositive = true;
+            } else {
+              $isPositive = false;
+            }
             foreach ($listBookedPassenger as $bookedPassenger) {
               $passenger['user'] = $bookedPassenger->getPassenger();
               $passenger['seats'] = $bookedPassenger->getSeats();
@@ -98,7 +129,16 @@ class LiftController extends Controller
             }
         }
 
-        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig', array('lift' => $lift, 'booked' => $booked, 'isSubscribed' => $isSubscribed, 'isDriver' => $isDriver, 'passengers' => $passengers));
+        return $this->render('TEPlatformBundle:Lift:viewLift.html.twig',
+          array('lift' => $lift,
+                'booked' => $booked,
+                'isSubscribed' => $isSubscribed,
+                'isDriver' => $isDriver,
+                'passengers' => $passengers,
+                'evaluation' => $evaluation,
+                'isPositive' => $isPositive,
+                'seatsAvailable' => $seatsAvailable
+          ));
     }
 
     /**
@@ -109,7 +149,6 @@ class LiftController extends Controller
         $request = $this->get('request');
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
         $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
 
         if( $request->getMethod() == 'POST' ) {
@@ -134,7 +173,6 @@ class LiftController extends Controller
     {
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
         $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
 
         $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
