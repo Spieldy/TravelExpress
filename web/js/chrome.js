@@ -1,6 +1,5 @@
 $(function() {
-	var flashBags = $("#JsFlashBags");
-	// if a revoir
-    if (flashBags.text().length() > 0) {
-    	swal("Good job!", flashBags.text(), "success"); }
+	var text = $("#JsFlashBags").text().trim();
+    if (text.length > 0) {
+    	swal("Good job!", text, "success"); }
 });

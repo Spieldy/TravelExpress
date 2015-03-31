@@ -15,17 +15,20 @@
       </div>
   </form>
   <ul class="Lifts">
+    
       {% for lift in lifts %}
         <li>
             <article class="Lift">
                 <a href="{{ path('te_lift_view', {'id':lift.id})}}">
-                  <h2 class="LiftTitle">{{lift.fromCity}} - {{lift.toCity}}</h2>
+                  <div class="LiftTitle">
+                    <div class="details">
+                      <span class="Date">{{lift.dateLift|date('d F Y H:i')}} <i class="fa fa-calendar-o"></i></span>
+                      <span class="Places">{{lift.seats}} <i class="fa fa-user"></i></span>
+                      <span class="Price">{{lift.price}}<i class="fa fa-usd"></i></span>
+                    </div>
+                    <h2 class="LiftTitle-h2">{{lift.fromCity}} <i class="fa fa-long-arrow-right"></i> {{lift.toCity}}</h2>
+                  </div>
                 </a>
-                <p class="LiftText">
-                    <span class="Date">Date : {{lift.dateLift|date('d F Y H:i')}}</span><br>
-                    <span class="Places">Places disponibles : {{lift.seats}}</span><br>
-                    <span class="Price">Prix total : {{lift.price}}</span>
-                </p>
             </article>
         </li>
     {% endfor %}

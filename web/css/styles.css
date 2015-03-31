@@ -1,7 +1,12 @@
-è/**  */
+/** General */
 
 body {
 	font-size: 1.8rem;
+	background: url(../bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 a {
@@ -10,7 +15,7 @@ a {
 
 /** Layout */
 .Header-nav,
-.Main,
+.Main-wrapper,
 .FooterContent {
 	max-width: 960px;
 	margin: 0 auto;
@@ -20,7 +25,10 @@ a {
 /** Elements */
 .Header,
 .Footer {
-	background-color: #333;
+	text-shadow:0 1px 1px #000;
+}
+.Main {
+	background-color: rgba(255,255,255,.95);
 }
 .Header a {
 	color:#EFEFEF;
@@ -44,18 +52,27 @@ a {
 }
 .Lifts {
 	list-style: none;
-	padding: 0
+	padding: 1rem 0;
 }
 	.Lift {
 		background-color: #EFEFEF;
 		border-radius: 2px;
 		overflow: hidden;
+		margin-bottom: 2rem;
 	}
 		.LiftTitle {
 			padding: 1rem;
 			margin: 0;
 			background-color: #CDCDCD;
 			border-bottom: 2px solid #888;
+		}
+		.LiftTitle-h2,
+		.details {
+			margin: 1rem;
+			line-height: 3rem;
+		}
+		.details {
+			float: right;
 		}
 		.LiftText {
 			font-size: 1.8rem;
