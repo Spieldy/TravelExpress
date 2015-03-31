@@ -29,3 +29,12 @@ te_booked_subscribe:
 te_booked_unsubscribe:
   path: /booked/unsubscribe/{id}
   defaults: { _controller: TEPlatformBundle:Lift:unsubscribe }
+
+te_eval_positive:
+  path: /eval/positive/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:positive }
+
+te_eval_negative:
+  path: /eval/negative/{id}
+  defaults: { _controller: TEPlatformBundle:Lift:negative }
+

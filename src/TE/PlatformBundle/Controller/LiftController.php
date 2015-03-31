@@ -204,4 +204,16 @@ class LiftController extends Controller
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $idLift));
         return $response;
     }
+
+    public function positiveAction($id)
+    {
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
+        return $response;
+    }
+
+    public function negativeAction($id)
+    {
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
+        return $response;
+    }
   }
