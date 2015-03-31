@@ -19,7 +19,7 @@ class LiftController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $liftRepository= $em->getRepository('TEPlatformBundle:Lift');
-        $lifts = $liftRepository->findAvailableLiftByDate();
+        $lifts = $liftRepository->findLiftByDate();
         $liftsSeats = array();
         foreach ($lifts as $lift) {
             $seatsAvailable = 0;
@@ -49,19 +49,24 @@ class LiftController extends Controller
             $fromCity = $request->get('fromCity');
             $toCity = $request->get('toCity');
             $lifts = $liftRepository->findLiftByCity(strtolower($fromCity), strtolower($toCity));
-            $liftsSeats = array();
-            foreach ($lifts as $lift) {
-                $seatsAvailable = 0;
-                $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
-                $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
-                $nbSeats = 0;
-                foreach ($listBookedPassenger as $bookedPassenger) {
-                    $nbSeats += $bookedPassenger->getSeats();
+            if (empty($lifts))
+                $request->getSession()->getFlashBag()->add('error', 'Pas de trajet correspondant à votre recherhce');
+                return $this->forward('TEPlatformBundle:Lift:index');
+            else {
+                $liftsSeats = array();
+                foreach ($lifts as $lift) {
+                    $seatsAvailable = 0;
+                    $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+                    $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+                    $nbSeats = 0;
+                    foreach ($listBookedPassenger as $bookedPassenger) {
+                        $nbSeats += $bookedPassenger->getSeats();
+                    }
+                    $seatsAvailable = $lift->getSeats() - $nbSeats;
+                    $tab['lift'] = $lift;
+                    $tab['seats'] = $seatsAvailable;
+                    $liftsSeats[] = $tab;
                 }
-                $seatsAvailable = $lift->getSeats() - $nbSeats;
-                $tab['lift'] = $lift;
-                $tab['seats'] = $seatsAvailable;
-                $liftsSeats[] = $tab;
             }
 
             return $this->render('TEPlatformBundle:Lift:search.html.twig', array('lifts' => $liftsSeats));
