@@ -51,6 +51,26 @@ a {
 	width: 100%;
 }
 
+.Name {
+	text-transform: capitalize;
+}
+
+.Notation {
+	background-color: #bbb;
+	border-radius: 2px;
+	margin-left: 1rem;
+}
+.Notation .fa-plus,
+.Notation .fa-minus {
+	padding: 0 .5rem
+}
+.Notation .fa-plus {
+	color:green;
+}
+.Notation .fa-minus {
+	border-left: 1px solid #999;
+	color:red;
+}
 /** Lifts */
 	.Lifts {
 		list-style: none;
@@ -82,7 +102,24 @@ a {
 
 	.LiftIcons-span {
 		margin-right: 1rem;
-	}	
+	}
+	.Lift.notAviable .LiftIcons {
+		display: none;
+	}
+
+	.Complete {
+		font-weight: bold;
+		background-color: red;
+		color:yellow;
+		float: right ;
+		margin-top:1.5rem;
+		padding: .5rem 5rem;
+		-webkit-transform: rotate(45deg); 
+		-moz-transform: rotate(45deg); 
+		-o-transform: rotate(45deg);
+		-ms-transform: rotate(45deg); 
+
+	}
 
 /** One lift view */
 	.LiftText {
