@@ -36,7 +36,7 @@ class LiftController extends Controller
         }
 
 
-        return $this->render('TEPlatformBundle:Lift:index.html.twig', array('lifts' => $liftsSeats ));
+        return $this->render('TEPlatformBundle:Lift:index.html.twig', array('lifts' => $liftsSeats));
 
     }
 
@@ -150,15 +150,28 @@ class LiftController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
+        $seatsAvailable = 0;
+        $nbSeats = 0;
 
         if( $request->getMethod() == 'POST' ) {
-          $seats = $request->get('seats');
-          $bookedPassenger = new BookedPassenger();
-          $bookedPassenger->setPassenger($user);
-          $bookedPassenger->setBooked($booked);
-          $bookedPassenger->setSeats($seats);
-          $em->persist($bookedPassenger);
-          $em->flush();
+            $seats = $request->get('seats');
+            $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+            $nbSeats = 0;
+            foreach ($listBookedPassenger as $bookedPassenger) {
+                $nbSeats += $bookedPassenger->getSeats();
+            }
+            $seatsAvailable = $booked->getLift()->getSeats() - $nbSeats;
+
+            if ($seats > $seatsAvailable) {
+                $request->getSession()->getFlashBag()->add('notice', 'Trop de passagers');
+            } else {
+                $bookedPassenger = new BookedPassenger();
+                $bookedPassenger->setPassenger($user);
+                $bookedPassenger->setBooked($booked);
+                $bookedPassenger->setSeats($seats);
+                $em->persist($bookedPassenger);
+                $em->flush();
+            }
         }
 
         $idLift = $booked->getLift()->getId();

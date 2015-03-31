@@ -16,9 +16,7 @@ class LiftRepository extends EntityRepository
   {
     $qb = $this->createQueryBuilder('lift');
 
-    $qb->where('lift.isAvailable = :isAvailable')
-         ->setParameter('isAvailable', 1)
-       ->andWhere('lift.dateLift > :date')
+    $qb->Where('lift.dateLift > :date')
          ->setParameter('date', new \DateTime())
        ->orderBy('lift.dateLift', 'ASC')
     ;
