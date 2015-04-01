@@ -100,6 +100,7 @@ a {
 	}
 	.LiftIcons {
 		float: right;
+		border-right: 1px dotted #333;
 	}
 
 	.LiftIcons-span {
@@ -139,6 +140,7 @@ a {
 /** Evals */
 	.Eval {
 		font-style: italic;
+		color:#444;
 	}
 	.Eval.positif {
 		color:green;

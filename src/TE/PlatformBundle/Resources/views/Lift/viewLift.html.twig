@@ -25,12 +25,17 @@
         <span class="capitalize">
           {{lift.driver}}
         </span>
-        {% if evalDriver > 0%}
-          <span class="Eval positif">
+        {% if evalDriver == -1 %}
+          <span class="Eval">
+            Ce conducteur n'a pas encore été noté
         {% else %}
-          <span class="Eval negatif">
+          {% if evalDriver > 50 %}
+            <span class="Eval positif">
+          {% else %}
+            <span class="Eval negatif">
+          {% endif %}
+          {{evalDriver}} %
         {% endif %}
-          {{evalDriver}}
         </span>
       {% if not isDriver %}
         {% if isSubscribed %}
