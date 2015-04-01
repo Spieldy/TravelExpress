@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h2>Profil</h2>
-	<i class="fa fa-user"></i> : user.username 
+	<i class="fa fa-user"></i> : {{user.username}}
 	{% if evalDriver == -1 %}
 	  <span class="Eval">
 	    Ce conducteur n'a pas encore été noté
@@ -18,7 +18,7 @@
 	<br>
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-		<i class="fa fa-envelope-o"></i> : <a href="mailto:">user.email</a> <br>
+		<i class="fa fa-envelope-o"></i> : <a href="mailto:{{user.email}}">Contacter l'utilisateur</a> <br>
 	{% endif %}
 
 	{% if isOwner %}
