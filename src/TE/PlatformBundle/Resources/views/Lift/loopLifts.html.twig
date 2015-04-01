@@ -12,30 +12,32 @@
             </div>
           {% endif %}
 
-          <a href="{{ path('te_lift_view', {'id':lift.lift.id})}}">
+
             <div class="LiftTitle">
               <div class="LiftIcons top">
                   {% include "TEPlatformBundle:Lift:liftIcons.html.twig" %}
               </div>
 
               <h2 class="LiftTitle-h2">
-                <span class="capitalize">
-                  {{lift.lift.fromCity}}
-                </span>
-                <i class="fa fa-long-arrow-right"></i>
-                <span class="capitalize">
-                  {{lift.lift.toCity}}
-                </span>
+                <a href="{{ path('te_lift_view', {'id':lift.lift.id})}}">
+                    <span class="capitalize">
+                      {{lift.lift.fromCity}}
+                    </span>
+                    <i class="fa fa-long-arrow-right"></i>
+                    <span class="capitalize">
+                      {{lift.lift.toCity}}
+                    </span>
+                </a>
               </h2>
-              
+
               <div class="LiftIcons bottom">
                 {% include "TEPlatformBundle:Lift:liftIcons.html.twig" %}
             </div>
-          </a>
+
         </article>
       </li>
     {% endfor %}
   {% else %}
-    <h2>Aucun lift à afficher :(</h2>
+    <p>Aucun lift à afficher :(</p>
   {% endif %}
 </ul>

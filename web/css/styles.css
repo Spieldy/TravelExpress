@@ -89,6 +89,7 @@ a {
 		margin: 0;
 		background-color: #CDCDCD;
 		border-bottom: 2px solid #888;
+        line-height: 3rem;
 	}
 	.LiftTitle-h2,
 	.LiftIcons {
@@ -105,9 +106,9 @@ a {
 	.LiftIcons-span {
 		margin-right: 1rem;
 	}
-	.LiftIcons-span.delete {
-		color:red;
-	}
+    .fa-trash-o {
+        color:red;
+    }
 	.Lift.notAviable .LiftIcons {
 		display: none;
 	}

@@ -2,7 +2,7 @@
 
 {% block content %}
 	<h2>Profil</h2>
-	<i class="fa fa-user"></i> : {{user.username}}
+	<i class="fa fa-user"></i> : <span class="capitalize">{{user.username}}</span>
 	{% if evalDriver == -1 %}
 	  <span class="Eval">
 	    Ce conducteur n'a pas encore été noté
@@ -19,9 +19,11 @@
 
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
 		<i class="fa fa-envelope-o"></i> : <a href="mailto:{{user.email}}">Contacter l'utilisateur</a> <br>
-	{% endif %}
+        <i class="fa fa-phone"></i> : {{ user.cellphone }} <br>
 
-	{% if isOwner %}
+    {% endif %}
+
+	{% if isOwner or is_granted("ROLE_ADMIN") %}
 		<h2>Lifts inscrits</h2>
         
 		{% include "TEPlatformBundle:Lift:loopLifts.html.twig" with {'lifts': subscribedLifts} %}

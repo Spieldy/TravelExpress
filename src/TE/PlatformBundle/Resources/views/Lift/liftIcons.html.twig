@@ -7,6 +7,10 @@
 <span class="LiftIcons-span">
   {{lift.lift.price}}<i class="fa fa-usd"></i>
 </span>
-<span class="LiftIcons-span delete">
-	<a href="{{path('te_admin_removeLift', {'id':lift.lift.id})}}"><i class="fa fa-trash-o"></i></a>	
-</span>
+{% if is_granted("ROLE_ADMIN") %}
+    <span class="LiftIcons-span">
+        <a href="{{path('te_admin_removeLift', {'id':lift.lift.id}) }}">
+            <i class="fa fa-trash-o"></i>
+        </a>
+    </span>
+{% endif %}

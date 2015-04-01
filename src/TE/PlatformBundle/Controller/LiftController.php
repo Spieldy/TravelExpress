@@ -397,7 +397,15 @@ class LiftController extends Controller
      */
     public function removeLiftAction(Request $request, $id)
     {
+        $em = $this->getDoctrine()->getManager();
+        $lift = $em->getRepository('TEPlatformBundle:Lift')->find($id);
 
+        if ($lift != null) {
+            $em->remove($lift);
+            $em->flush();
+        }
+
+        return $this->forward('TEPlatformBundle:Lift:index');
     }
 
   }

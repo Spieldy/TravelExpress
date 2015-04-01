@@ -36,7 +36,7 @@ class BookedPassenger
 
     /**
      * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\Booked")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $booked;
 

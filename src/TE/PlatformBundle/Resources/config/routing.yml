@@ -13,14 +13,10 @@ te_lift_add:
 te_lift_edit:
   path:     /lift/edit/{id}
   defaults: { _controller: TEPlatformBundle:Lift:edit }
-  requirements:
-    id:   \d
 
 te_lift_remove:
   path:     /lift/remove/{id}
   defaults: { _controller: TEPlatformBundle:Lift:remove }
-  requirements:
-    id:   \d
 
 te_lift_view:
   path: /lift/view/{id}
@@ -49,12 +45,8 @@ te_user_register:
 te_user_profile:
     path:     /user/profile/{id}
     defaults: { _controller: TEPlatformBundle:Lift:profile }
-    requirements:
-      id:   \d
 
 te_admin_removeLift:
     path:  /admin/remove/{id}
     defaults: { _controller: TEPlatformBundle:Lift:removeLift }
-    requirements:
-      id: \d
 

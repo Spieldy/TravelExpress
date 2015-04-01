@@ -31,7 +31,7 @@ class Booked
 
     /**
      * @ORM\ManyToOne(targetEntity="TE\PlatformBundle\Entity\Lift")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $lift;
 
