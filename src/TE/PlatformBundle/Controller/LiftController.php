@@ -80,6 +80,12 @@ class LiftController extends Controller
         }
     }
 
+    public function registerAction(Request $request)
+    {
+        $request->getSession()->getFlashBag()->add('notice', 'Vous êtes bien inscrit');
+        return $this->forward('TEPlatformBundle:Lift:index');
+    }
+
     /**
      * @Security("has_role('ROLE_USER')")
      */

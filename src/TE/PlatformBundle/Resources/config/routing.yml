@@ -42,3 +42,6 @@ te_eval_negative:
   path: /eval/negative/{id}
   defaults: { _controller: TEPlatformBundle:Lift:negative }
 
+te_user_register:
+  path: /user/register
+  defaults: { _controller: TEPlatformBundle:Lift:register }
