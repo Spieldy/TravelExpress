@@ -58,6 +58,18 @@
         <i class="fa fa-user"></i>
         {{seatsAvailable}}
         <br>
+
+        {% if lift.frequency %}
+          <i class="fa fa-repeat"></i>
+          {% if lift.frequency == "quotidien" %}
+            Tous les jours à la même heure
+          {% elseif lift.frequency == "hebdomadaire" %}
+            Toutes les semaines, même jour même heure
+          {% else %}
+            Tous les mois
+          {% endif %}
+          <br>
+        {% endif %}
         
         <i class="fa fa-usd"></i>
         {{lift.price}}
