@@ -30,7 +30,15 @@ class AddLiftType extends AbstractType
             ->add('dateLift', 'datetime', array( 
                 'label'  => 'Date de départ'
                 ))
+<<<<<<< HEAD
             ->add('price', 'integer', array( 
+=======
+            ->add('frequency', 'choice', array(
+                'choices'   => array('q' => 'Quotidien', 'h' => 'Hebdomadaire', 'm' => 'Mensuel'),
+                'required'  => false,
+                ))
+            ->add('price', 'number', array( 
+>>>>>>> 232a100354f48f4e64218cea4d4f0ba9c0801e36
                 'label'  => 'Prix',
                 'attr'   =>  array(
                     'placeholder'   => 'Prix',

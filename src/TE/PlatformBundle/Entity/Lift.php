@@ -90,7 +90,7 @@ class Lift
     /**
      * @var string
      *
-     * @ORM\Column(name="frequency", type="string", length=255)
+     * @ORM\Column(name="frequency", type="string", length=255, nullable=true)
      * @Assert\Length(min=5)
      */
     private $frequency;
