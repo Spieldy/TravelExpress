@@ -22,3 +22,5 @@ composer install
 php app/console doctrine:database:create
 php app/console doctrine:schema:update --force
 ```
+
+Le code source est situé dans src/TE/PLatformBundle.
