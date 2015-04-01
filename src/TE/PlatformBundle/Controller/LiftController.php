@@ -174,7 +174,7 @@ class LiftController extends Controller
         if ($lift->getDriver()->getPositive() == 0 && $lift->getDriver()->getNegative() == 0) {
             $evalDriver = -1;
         } else {
-            $evalDriver = ($lift->getDriver()->getPositive()/($lift->getDriver()->getNegative() + $lift->getDriver()->getNegative()))*100;
+            $evalDriver = ($lift->getDriver()->getPositive()/($lift->getDriver()->getPositive() + $lift->getDriver()->getNegative()))*100;
         }
 
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig',
@@ -281,7 +281,11 @@ class LiftController extends Controller
             $booked->getDriver()->setPositive($booked->getDriver()->getPositive() + 1);
         }
 
-        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
+        $em->persist($booked);
+        $em->persist($booked->getDriver());
+        $em->flush();
+
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $booked->getLift()->getId()));
         return $response;
     }
 
@@ -305,7 +309,11 @@ class LiftController extends Controller
             $booked->getDriver()->setNegative($booked->getDriver()->getNegative() + 1);
         }
 
-        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
+        $em->persist($booked);
+        $em->persist($booked->getDriver());
+        $em->flush();
+
+        $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $booked->getLift()->getId()));
         return $response;
     }
 
