@@ -30,8 +30,8 @@
       <file leaf-file-name="LiftController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65356624" vertical-offset="2543" max-vertical-offset="5151">
-              <caret line="185" column="13" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.57933044" vertical-offset="3682" max-vertical-offset="5185">
+              <caret line="249" column="9" selection-start-line="249" selection-start-column="9" selection-end-line="249" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -568,8 +568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65356624" vertical-offset="2543" max-vertical-offset="5151">
-          <caret line="185" column="13" selection-start-line="185" selection-start-column="13" selection-end-line="185" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.57933044" vertical-offset="3682" max-vertical-offset="5185">
+          <caret line="249" column="9" selection-start-line="249" selection-start-column="9" selection-end-line="249" selection-end-column="9" />
           <folding />
         </state>
       </provider>

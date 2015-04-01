@@ -245,8 +245,10 @@ class LiftController extends Controller
             $booked->getLift()->setIsAvailable(1);
             $em->persist($booked->getLift());
         }
+        if ($bookedPassenger != null) {
+            $em->remove($bookedPassenger);
+        }
 
-        $em->remove($bookedPassenger);
         $em->flush();
 
         $request->getSession()->getFlashBag()->add('notice', 'Désinscription au trajet réussie');
