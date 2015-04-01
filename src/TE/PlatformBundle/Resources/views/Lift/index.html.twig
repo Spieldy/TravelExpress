@@ -3,15 +3,17 @@
 {% block content %}
   <form action="{{ path('te_lift_search')}}" method='post' class="Search autogrid3">
       <div>
-      <label for="depart" class="hidden">Ville de départ</label>
-      <input type="text" name="fromCity" placeholder="Ville de départ" id="depart">
+        <label for="depart" class="hidden">Ville de départ</label>
+        <input type="text" name="fromCity" placeholder="Ville de départ" id="depart">
       </div>
+      
       <div>
-      <label for="arrivee" class="hidden">Ville d'arrivée</label>
-      <input type="text" name="toCity" placeholder="Ville d'arrivée" id="arrivee">
+        <label for="arrivee" class="hidden">Ville d'arrivée</label>
+        <input type="text" name="toCity" placeholder="Ville d'arrivée" id="arrivee">
       </div>
+      
       <div>
-      <input type="submit" class="Btn" value="Rechercher">
+        <input type="submit" class="Btn" value="Rechercher">
       </div>
   </form>
   <ul class="Lifts">
@@ -30,15 +32,37 @@
           <a href="{{ path('te_lift_view', {'id':lift.lift.id})}}">
             <div class="LiftTitle">
               <div class="LiftIcons top">
-                <span class="LiftIcons-span">{{lift.lift.dateLift|date('d F Y H:i')}}</span>
-                <span class="LiftIcons-span">{{lift.lift.seats}} <i class="fa fa-user"></i></span>
-                <span class="LiftIcons-span">{{lift.lift.price}}<i class="fa fa-usd"></i></span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.dateLift|date('d F Y H:i')}}
+                </span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.seats}} <i class="fa fa-user"></i>
+                </span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.price}}<i class="fa fa-usd"></i>
+                </span>
               </div>
-              <h2 class="LiftTitle-h2">{{lift.lift.fromCity}} <i class="fa fa-long-arrow-right"></i> {{lift.lift.toCity}}</h2>
+
+              <h2 class="LiftTitle-h2">
+                <span class="capitalize">
+                  {{lift.lift.fromCity}}
+                </span>
+                <i class="fa fa-long-arrow-right"></i>
+                <span class="capitalize">
+                  {{lift.lift.toCity}}
+                </span>
+              </h2>
+              
               <div class="LiftIcons bottom">
-                <span class="LiftIcons-span">{{lift.lift.dateLift|date('d F Y H:i')}}</span>
-                <span class="LiftIcons-span">{{lift.lift.seats}} <i class="fa fa-user"></i></span>
-                <span class="LiftIcons-span">{{lift.lift.price}}<i class="fa fa-usd"></i></span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.dateLift|date('d F Y H:i')}}
+                </span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.seats}} <i class="fa fa-user"></i>
+                </span>
+                <span class="LiftIcons-span">
+                  {{lift.lift.price}} <i class="fa fa-usd"></i>
+                </span>
               </div>
             </div>
           </a>
