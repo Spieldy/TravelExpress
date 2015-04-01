@@ -72,7 +72,10 @@
         {% endif %}
         
         <i class="fa fa-usd"></i>
-        {{lift.price}}
+        {{lift.price}}<br>
+        {% if lift.comment %}
+                <i class="fa fa-info-circle"></i> {{ lift.comment }}
+        {% endif %}
     </p>
 
     <div class="LiftAdditionalInfos">
@@ -82,7 +85,7 @@
             <h3>Passagers inscrits</h3>
             <ul>
               {% for passenger in passengers %}
-                <li><a href="mailto:{{passenger.user.email}}">{{passenger.user.username}}</a> pour {{passenger.seats}} sièges</li>
+                <li><a href="mailto:{{passenger.user.email}}"><span class="capitalize">{{passenger.user.username}}</span></a> pour {{passenger.seats}} sièges</li>
               {% endfor %}
             </ul>
           {% else %}

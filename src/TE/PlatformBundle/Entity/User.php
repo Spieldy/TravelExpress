@@ -46,6 +46,13 @@ class User extends BaseUser
      */
     protected $cellphone;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=512, nullable=true)
+     */
+    protected $comment;
+
 
     public function setPositive($positive)
     {
@@ -77,7 +84,6 @@ class User extends BaseUser
 
         return $this;
     }
-
 
     public function getCellphone()
     {

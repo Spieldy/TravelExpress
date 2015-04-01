@@ -399,13 +399,21 @@ class LiftController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $lift = $em->getRepository('TEPlatformBundle:Lift')->find($id);
+        $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+        $bookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findOneByBooked($booked);
 
-        if ($lift != null) {
-            $em->remove($lift);
-            $em->flush();
+        if (isset($bookedPassenger))
+        {
+            $request->getSession()->getFlashBag()->add('error', 'Passager(s) inscrit(s) sur ce trajet');
+            return $this->forward('TEPlatformBundle:Lift:index');
+        } else {
+            if ($lift != null) {
+                $em->remove($lift);
+                $em->flush();
+                $request->getSession()->getFlashBag()->add('notice', 'Suppression bien effectuée');
+
+            }
+            return $this->forward('TEPlatformBundle:Lift:index');
         }
-
-        return $this->forward('TEPlatformBundle:Lift:index');
     }
-
   }

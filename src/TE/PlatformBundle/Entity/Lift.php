@@ -95,6 +95,13 @@ class Lift
      */
     private $frequency;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comment", type="string", length=512, nullable=true)
+     */
+    protected $comment;
+
 
     public function __construct()
     {
@@ -257,5 +264,18 @@ class Lift
     public function getFrequency()
     {
         return $this->frequency;
+    }
+
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+
+    public function getComment()
+    {
+        return $this->comment;
     }
 }

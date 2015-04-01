@@ -34,6 +34,13 @@ class AddLiftType extends AbstractType
                 'choices'   => array('quotidien' => 'Quotidien', 'hebdomadaire' => 'Hebdomadaire', 'mensuel' => 'Mensuel'),
                 'required'  => false,
                 ))
+            ->add('comment', 'textarea', array(
+                'required' => false,
+                'label' => 'Commentaire',
+                'translation_domain' => 'FOSUserBundle',
+                'attr'   =>  array(
+                    'placeholder'   => 'Commentaire')
+            ))
             ->add('price', 'number', array( 
                 'label'  => 'Prix',
                 'attr'   =>  array(
