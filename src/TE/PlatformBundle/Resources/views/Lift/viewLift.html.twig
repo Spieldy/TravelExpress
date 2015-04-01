@@ -10,23 +10,44 @@
       complet !
     </div>
   {% endif %}
-    <h2>{{lift.fromCity}} <i class="fa fa-long-arrow-right"></i> {{lift.toCity}}</h2>
+    <h2 class="LiftTitle">
+      <span class="capitalize">
+        {{lift.fromCity}}
+      </span> 
+      <i class="fa fa-long-arrow-right"></i> 
+      <span class="capitalize">
+        {{lift.toCity}}
+      </span>
+    </h2>
+
     <p class="LiftText">
-        <i class="fa fa-car"></i> <span class="Name">{{lift.driver}}</span>
-          <span class="Eval positif">3</span>
-          <span class="Notation">
-            <a href="{{ path('te_eval_positive', {'id':lift.id})}}"><i class="fa fa-plus"></i></a>
-            <a href="{{ path('te_eval_negative', {'id':lift.id})}}"><i class="fa fa-minus"></i></a>
-          </span>
-          <br>
-        <i class="fa fa-calendar"></i> {{lift.dateLift|date('Y-m-d H:i')}}<br>
-        <i class="fa fa-user"></i> {{seatsAvailable}}<br>
-        <i class="fa fa-usd"></i> {{lift.price}}
+        <i class="fa fa-car"></i>
+        <span class="capitalize">
+          {{lift.driver}}
+        </span>
+        <span class="Eval positif">3</span>
+      {% if not isDriver %}
+        <span class="Notation">
+          <a href="{{ path('te_eval_positive', {'id':lift.id})}}"><i class="fa fa-plus"></i></a>
+          <a href="{{ path('te_eval_negative', {'id':lift.id})}}"><i class="fa fa-minus"></i></a>
+        </span>
+      {% endif %}
+        <br>
+        
+        <i class="fa fa-calendar"></i>
+        {{lift.dateLift|date('Y-m-d H:i')}}
+        <br>
+        
+        <i class="fa fa-user"></i>
+        {{seatsAvailable}}
+        <br>
+        
+        <i class="fa fa-usd"></i>
+        {{lift.price}}
     </p>
 
     <div class="LiftAdditionalInfos">
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    
         {% if isDriver %}
           {% if passengers %}
             <h3>Passagers inscrits</h3>
@@ -39,7 +60,6 @@
             <h3>Aucun passager inscrit à votre lift</h3>
           {% endif %}
         {% else %}
-
           {% if isSubscribed %}
             <a class="Btn" href="{{ path('te_booked_unsubscribe', {'id':booked.id})}}">Se désinscrire</a>
           {% else %}
@@ -50,10 +70,8 @@
               </form>
             {% endif %}
           {% endif %}
-
         {% endif %}
-      
-    {% else %}
+      {% else %}
       <a class="Btn" href="{{ path('fos_user_registration_register') }}">Inscrivez vous pour réserver !</a>
     {% endif %}
     </div>

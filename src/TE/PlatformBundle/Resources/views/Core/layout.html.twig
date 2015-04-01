@@ -51,8 +51,13 @@
 
     <footer class="Footer">
       <div class="FooterContent">
-        <div id="JsFlashBags" class="hidden">
+        <div id="JsFlashBagsNotices" class="hidden">
           {% for flashMessage in app.session.flashbag.get('notice') %}
+            {{ flashMessage }}
+          {% endfor %}
+        </div>
+        <div id="JsFlashBagsErrors" class="hidden">
+          {% for flashMessage in app.session.flashbag.get('error') %}
             {{ flashMessage }}
           {% endfor %}
         </div>
