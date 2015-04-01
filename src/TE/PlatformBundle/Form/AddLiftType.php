@@ -30,10 +30,12 @@ class AddLiftType extends AbstractType
             ->add('dateLift', 'datetime', array( 
                 'label'  => 'Date de départ'
                 ))
-            ->add('price', 'number', array( 
+            ->add('price', 'integer', array( 
                 'label'  => 'Prix',
                 'attr'   =>  array(
-                    'placeholder'   => 'Prix')
+                    'placeholder'   => 'Prix',
+                    'min' => '1',
+                    'max' => '500')
                 ))
             ->add('seats', 'integer', array( 
                 'label'  => 'Places disponibles',

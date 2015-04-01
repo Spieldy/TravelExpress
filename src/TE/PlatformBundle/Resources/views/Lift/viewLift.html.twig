@@ -23,13 +23,13 @@
     <p class="LiftText">
         <i class="fa fa-car"></i>
         <span class="capitalize">
-          {{lift.driver}}
+          {#<a href="{{patch('te_user_profile', {'id':lift.driver.id})}}">{{lift.driver}}</a>#}
         </span>
         {% if evalDriver == -1 %}
           <span class="Eval">
             Ce conducteur n'a pas encore été noté
         {% else %}
-          {% if evalDriver > 50 %}
+          {% if evalDriver > 49 %}
             <span class="Eval positif">
           {% else %}
             <span class="Eval negatif">
@@ -74,7 +74,7 @@
               {% endfor %}
             </ul>
           {% else %}
-            <h3>Aucun passager inscrit à votre lift</h3>
+            <h3>Aucun passager inscrit à votre lift :(</h3>
           {% endif %}
         {% else %}
           {% if isSubscribed %}

@@ -100,7 +100,6 @@ a {
 	}
 	.LiftIcons {
 		float: right;
-		border-right: 1px dotted #333;
 	}
 
 	.LiftIcons-span {
@@ -136,6 +135,9 @@ a {
 	}
 	.LiftAdditionalInfos {
 		padding: 2rem 1rem;
+	}
+	.LiftAdditionalInfos h3 {
+		margin: 0;
 	}
 /** Evals */
 	.Eval {
@@ -176,7 +178,11 @@ a {
 	.FormAddLift input,
 	.FormAddLift select {
 		margin-bottom: 1rem;
+	}
 
+	.FormAddLift input,
+	.FormAddLift button {
+		width: 30rem;
 	}
 	.FormAddLift label {
 		display: none;

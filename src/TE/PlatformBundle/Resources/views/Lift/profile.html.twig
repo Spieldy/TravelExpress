@@ -1,0 +1,31 @@
+{% extends "TEPlatformBundle:Core:layout.html.twig" %}
+
+{% block content %}
+	<h2>Profil</h2>
+	<i class="fa fa-user"></i> : user.username 
+	{% if evalDriver == -1 %}
+	  <span class="Eval">
+	    Ce conducteur n'a pas encore été noté
+	{% else %}
+	  {% if evalDriver > 49 %}
+	    <span class="Eval positif">
+	  {% else %}
+	    <span class="Eval negatif">
+	  {% endif %}
+	  {{evalDriver}} %
+	{% endif %}
+	</span>
+	<br>
+
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+		<i class="fa fa-envelope-o"></i> : <a href="mailto:">user.email</a> <br>
+	{% endif %}
+
+	{% if isOwner %}
+		<h2>Lifts inscrits</h2>
+		{% include "TEPlatformBundle:Lift:loopLifts.html.twig" with {'lifts' : 'subscribedLifts'} %}
+	{% endif %}
+
+	<h2>Lifts proposés</h2>
+	{% include "TEPlatformBundle:Lift:loopLifts.html.twig" with {'lifts' : 'ownedLifts'} %}
+{% endblock %}
