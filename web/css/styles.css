@@ -105,6 +105,9 @@ a {
 	.LiftIcons-span {
 		margin-right: 1rem;
 	}
+	LiftIcons-span.delete {
+		color:red;
+	}
 	.Lift.notAviable .LiftIcons {
 		display: none;
 	}
