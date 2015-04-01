@@ -15,15 +15,7 @@
           <a href="{{ path('te_lift_view', {'id':lift.lift.id})}}">
             <div class="LiftTitle">
               <div class="LiftIcons top">
-                <span class="LiftIcons-span">
-                  {{lift.lift.dateLift|date('d F Y H:i')}}
-                </span>
-                <span class="LiftIcons-span">
-                  {{lift.lift.seats}} <i class="fa fa-user"></i>
-                </span>
-                <span class="LiftIcons-span">
-                  {{lift.lift.price}}<i class="fa fa-usd"></i>
-                </span>
+                  {% include "TEPlatformBundle:Lift:liftIcons.html.twig" %}
               </div>
 
               <h2 class="LiftTitle-h2">
@@ -37,16 +29,7 @@
               </h2>
               
               <div class="LiftIcons bottom">
-                <span class="LiftIcons-span">
-                  {{lift.lift.dateLift|date('d F Y H:i')}}
-                </span>
-                <span class="LiftIcons-span">
-                  {{lift.lift.seats}} <i class="fa fa-user"></i>
-                </span>
-                <span class="LiftIcons-span">
-                  {{lift.lift.price}} <i class="fa fa-usd"></i>
-                </span>
-              </div>
+                {% include "TEPlatformBundle:Lift:liftIcons.html.twig" %}
             </div>
           </a>
         </article>
