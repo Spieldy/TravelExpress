@@ -25,12 +25,24 @@
         <span class="capitalize">
           {{lift.driver}}
         </span>
-        <span class="Eval positif">3</span>
-      {% if not isDriver %}
-        <span class="Notation">
-          <a href="{{ path('te_eval_positive', {'id':lift.id})}}"><i class="fa fa-plus"></i></a>
-          <a href="{{ path('te_eval_negative', {'id':lift.id})}}"><i class="fa fa-minus"></i></a>
+        {% if evalDriver > 0%}
+          <span class="Eval positif">
+        {% else %}
+          <span class="Eval negatif">
+        {% endif %}
+          {{evalDriver}}
         </span>
+      {% if not isDriver %}
+        {% if isSubscribed %}
+          <span class="Notation">
+            <a href="{{ path('te_eval_positive', {'id':booked.id})}}">
+              <i class="fa fa-plus"></i>
+            </a>
+            <a href="{{ path('te_eval_negative', {'id':booked.id})}}">
+              <i class="fa fa-minus"></i>
+            </a>
+          </span>
+        {% endif %}
       {% endif %}
         <br>
         
