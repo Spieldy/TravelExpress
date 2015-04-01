@@ -31,7 +31,7 @@ class AddLiftType extends AbstractType
                 'label'  => 'Date de départ'
                 ))
             ->add('frequency', 'choice', array(
-                'choices'   => array('m' => 'Masculin', 'f' => 'Féminin'),
+                'choices'   => array('q' => 'Quotidien', 'h' => 'Hebdomadaire', 'm' => 'Mensuel'),
                 'required'  => false,
                 ))
             ->add('price', 'number', array( 
