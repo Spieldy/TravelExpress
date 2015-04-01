@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28eda2b2-fd66-4cae-8c38-e2d8526c6e72" name="Default" comment="page de profil faite">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml" />
@@ -34,14 +35,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LiftController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LiftController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46234939" vertical-offset="5898" max-vertical-offset="6698">
-              <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
+            <state vertical-scroll-proportion="-20.961538" vertical-offset="6255" max-vertical-offset="6953">
+              <caret line="400" column="5" selection-start-line="400" selection-start-column="5" selection-end-line="400" selection-end-column="5" />
               <folding>
                 <element signature="e#48#82#0#PHP" expanded="true" />
-                <element signature="e#15644#15685#0#PHP" expanded="true" />
+                <element signature="e#15915#15956#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1003">
-              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.8790896" vertical-offset="368" max-vertical-offset="1122">
+              <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -93,11 +94,23 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-18.192308" vertical-offset="292" max-vertical-offset="1581">
+              <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+              <folding>
+                <element signature="e#44#76#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="profile.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="680">
-              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="28" selection-end-column="20" />
+            <state vertical-scroll-proportion="-18.307692" vertical-offset="0" max-vertical-offset="680">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
               <folding>
                 <element signature="e#12#50#0#Twig" expanded="true" />
                 <element signature="e#776#817#0#Twig" expanded="true" />
@@ -122,16 +135,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="3.2692308" vertical-offset="85" max-vertical-offset="1394">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/User/profile.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="221">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -166,13 +169,13 @@
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/EventListener/RegistrationConfirmListener.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Form/AddLiftType.php" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/Lift.php" />
-        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/UserController.php" />
-        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
         <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig" />
+        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
+        <option value="$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml" />
       </list>
     </option>
   </component>
@@ -731,7 +734,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#48#82#0#PHP" expanded="true" />
-            <element signature="e#15644#15685#0#PHP" expanded="true" />
+            <element signature="e#15915#15956#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -824,7 +827,7 @@
           <caret line="163" column="27" selection-start-line="163" selection-start-column="27" selection-end-line="163" selection-end-column="27" />
           <folding>
             <element signature="e#48#82#0#PHP" expanded="true" />
-            <element signature="e#15644#15685#0#PHP" expanded="true" />
+            <element signature="e#15915#15956#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -907,7 +910,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#48#82#0#PHP" expanded="true" />
-            <element signature="e#15644#15685#0#PHP" expanded="true" />
+            <element signature="e#15915#15956#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1017,16 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="1598">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Form/AddPassengerType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
@@ -1095,11 +1088,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="266" max-vertical-offset="1003">
-          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-          <folding />
+        <state vertical-scroll-proportion="-18.307692" vertical-offset="0" max-vertical-offset="680">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+          <folding>
+            <element signature="e#12#50#0#Twig" expanded="true" />
+            <element signature="e#776#817#0#Twig" expanded="true" />
+            <element signature="e#909#950#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.192308" vertical-offset="292" max-vertical-offset="1581">
+          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+          <folding>
+            <element signature="e#44#76#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1113,26 +1120,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/profile.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="680">
-          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="28" selection-end-column="20" />
+        <state vertical-scroll-proportion="-20.961538" vertical-offset="6255" max-vertical-offset="6953">
+          <caret line="400" column="5" selection-start-line="400" selection-start-column="5" selection-end-line="400" selection-end-column="5" />
           <folding>
-            <element signature="e#12#50#0#Twig" expanded="true" />
-            <element signature="e#776#817#0#Twig" expanded="true" />
-            <element signature="e#909#950#0#Twig" expanded="true" />
+            <element signature="e#48#82#0#PHP" expanded="true" />
+            <element signature="e#15915#15956#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
+    <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46234939" vertical-offset="5898" max-vertical-offset="6698">
-          <caret line="365" column="13" selection-start-line="365" selection-start-column="13" selection-end-line="365" selection-end-column="13" />
-          <folding>
-            <element signature="e#48#82#0#PHP" expanded="true" />
-            <element signature="e#15644#15685#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.8790896" vertical-offset="368" max-vertical-offset="1122">
+          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

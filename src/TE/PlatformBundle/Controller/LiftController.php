@@ -329,19 +329,24 @@ class LiftController extends Controller
         $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
         $driver =  $em->getRepository('TEPlatformBundle:User')->find($id);
 
+        $ownedLift = array();
+        $subscribedLift = array();
+
         $ownedLifts = $em->getRepository('TEPlatformBundle:Lift')->findByDriver($driver);
-        foreach ($ownedLifts as $lift) {
-            $seatsAvailable = 0;
-            $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
-            $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
-            $nbSeats = 0;
-            foreach ($listBookedPassenger as $bookedPassenger) {
-                $nbSeats += $bookedPassenger->getSeats();
+        if (isset($ownedLifts)) {
+            foreach ($ownedLifts as $lift) {
+                $seatsAvailable = 0;
+                $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+                $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
+                $nbSeats = 0;
+                foreach ($listBookedPassenger as $bookedPassenger) {
+                    $nbSeats += $bookedPassenger->getSeats();
+                }
+                $seatsAvailable = $lift->getSeats() - $nbSeats;
+                $tab['lift'] = $lift;
+                $tab['seats'] = $seatsAvailable;
+                $ownedLift[] = $tab;
             }
-            $seatsAvailable = $lift->getSeats() - $nbSeats;
-            $tab['lift'] = $lift;
-            $tab['seats'] = $seatsAvailable;
-            $ownedLift[] = $tab;
         }
         $subscribedLift = array();
         if ($driver == $user) {
@@ -351,18 +356,20 @@ class LiftController extends Controller
                 $booked = $bookedPassenger->getBooked();
                 $subscribedLifts[] = $booked->getLift();
             }
-            foreach ($subscribedLifts as $lift) {
-                $seatsAvailable = 0;
-                $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
-                $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
-                $nbSeats = 0;
-                foreach ($listBookedPassenger as $bookedPassenger) {
-                    $nbSeats += $bookedPassenger->getSeats();
+            if (isset($subscribedLifts)) {
+                foreach ($subscribedLifts as $lift) {
+                    $seatsAvailable = 0;
+                    $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+                    $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+                    $nbSeats = 0;
+                    foreach ($listBookedPassenger as $bookedPassenger) {
+                        $nbSeats += $bookedPassenger->getSeats();
+                    }
+                    $seatsAvailable = $lift->getSeats() - $nbSeats;
+                    $tab['lift'] = $lift;
+                    $tab['seats'] = $seatsAvailable;
+                    $subscribedLift[] = $tab;
                 }
-                $seatsAvailable = $lift->getSeats() - $nbSeats;
-                $tab['lift'] = $lift;
-                $tab['seats'] = $seatsAvailable;
-                $subscribedLift[] = $tab;
             }
         } else {
             $isOwner = false;
@@ -383,6 +390,14 @@ class LiftController extends Controller
                 'isOwner' => $isOwner,
                 'evalDriver'=> $evalDriver
             ));
+    }
+
+    /**
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function removeLiftAction(Request $request, $id)
+    {
+
     }
 
   }

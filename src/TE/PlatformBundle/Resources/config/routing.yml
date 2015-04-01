@@ -51,3 +51,10 @@ te_user_profile:
     defaults: { _controller: TEPlatformBundle:Lift:profile }
     requirements:
       id:   \d
+
+te_admin_removeLift:
+    path:  /admin/remove/{id}
+    defaults: { _controller: TEPlatformBundle:Lift:removeLift }
+    requirements:
+      id: \d
+

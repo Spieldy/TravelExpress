@@ -42,8 +42,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="fromCity", type="string", length=20)
-     * @Assert\Length(min=10)
+     * @ORM\Column(name="cellphone", type="string", length=20, nullable=true)
      */
     protected $cellphone;
 
