@@ -318,4 +318,71 @@ class LiftController extends Controller
         return $response;
     }
 
+    /**
+     * @Security("has_role('ROLE_USER')")
+     */
+    public function profileAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
+        $bookedRepository = $em->getRepository('TEPlatformBundle:Booked');
+        $driver =  $em->getRepository('TEPlatformBundle:User')->find($id);
+
+        $ownedLifts = $em->getRepository('TEPlatformBundle:Lift')->findByDriver($driver);
+        foreach ($ownedLifts as $lift) {
+            $seatsAvailable = 0;
+            $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+            $listBookedPassenger = $bookedPassengerRepository->findByBooked($booked);
+            $nbSeats = 0;
+            foreach ($listBookedPassenger as $bookedPassenger) {
+                $nbSeats += $bookedPassenger->getSeats();
+            }
+            $seatsAvailable = $lift->getSeats() - $nbSeats;
+            $tab['lift'] = $lift;
+            $tab['seats'] = $seatsAvailable;
+            $ownedLift[] = $tab;
+        }
+        $subscribedLift = array();
+        if ($driver == $user) {
+            $isOwner = true;
+            $bookedUser = $bookedPassengerRepository->findByPassenger($user);
+            foreach ($bookedUser as $bookedPassenger) {
+                $booked = $bookedPassenger->getBooked();
+                $subscribedLifts[] = $booked->getLift();
+            }
+            foreach ($subscribedLifts as $lift) {
+                $seatsAvailable = 0;
+                $booked = $em->getRepository('TEPlatformBundle:Booked')->findOneByLift($lift);
+                $listBookedPassenger = $em->getRepository('TEPlatformBundle:BookedPassenger')->findByBooked($booked);
+                $nbSeats = 0;
+                foreach ($listBookedPassenger as $bookedPassenger) {
+                    $nbSeats += $bookedPassenger->getSeats();
+                }
+                $seatsAvailable = $lift->getSeats() - $nbSeats;
+                $tab['lift'] = $lift;
+                $tab['seats'] = $seatsAvailable;
+                $subscribedLift[] = $tab;
+            }
+        } else {
+            $isOwner = false;
+        }
+
+        if ($driver->getPositive() == 0 && $driver->getNegative() == 0) {
+            $evalDriver = -1;
+        } else {
+            $evalDriver = ($driver->getPositive()/($driver->getPositive() + $driver->getNegative()))*100;
+        }
+
+
+        return $this->render('TEPlatformBundle:Lift:profile.html.twig',
+            array(
+                'user' => $driver,
+                'ownedLifts' => $ownedLift,
+                'subscribedLifts' => $subscribedLift,
+                'isOwner' => $isOwner,
+                'evalDriver'=> $evalDriver
+            ));
+    }
+
   }

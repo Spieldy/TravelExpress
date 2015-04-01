@@ -23,6 +23,10 @@
 
 	{% if isOwner %}
 		<h2>Lifts inscrits</h2>
+        {% for lift in subscribedLifts %}
+            {{ lift.lift.fromCity }}
+            {{ lift.seats }}
+        {% endfor %}
 		{% include "TEPlatformBundle:Lift:loopLifts.html.twig" with {'lifts' : 'subscribedLifts'} %}
 	{% endif %}
 

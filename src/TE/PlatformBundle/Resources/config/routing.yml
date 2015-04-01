@@ -48,6 +48,6 @@ te_user_register:
 
 te_user_profile:
     path:     /user/profile/{id}
-    defaults: { _controller: TEPlatformBundle:User:profile }
+    defaults: { _controller: TEPlatformBundle:Lift:profile }
     requirements:
       id:   \d
