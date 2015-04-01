@@ -30,6 +30,10 @@ class AddLiftType extends AbstractType
             ->add('dateLift', 'datetime', array( 
                 'label'  => 'Date de départ'
                 ))
+            ->add('frequency', 'choice', array(
+                'choices'   => array('m' => 'Masculin', 'f' => 'Féminin'),
+                'required'  => false,
+                ))
             ->add('price', 'number', array( 
                 'label'  => 'Prix',
                 'attr'   =>  array(

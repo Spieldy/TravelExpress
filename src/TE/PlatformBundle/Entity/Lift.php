@@ -87,11 +87,20 @@ class Lift
      */
     private $isAvailable = true;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="frequency", type="string", length=255)
+     * @Assert\Length(min=5)
+     */
+    private $frequency;
+
 
     public function __construct()
     {
       $this->dateLift = new \DateTime();
     }
+
     /**
      * Get id
      *
@@ -235,5 +244,18 @@ class Lift
     public function getSeats()
     {
         return $this->seats;
+    }
+
+    public function setFrequency($frequency)
+    {
+        $this->frequency = $frequency;
+
+        return $this;
+    }
+
+
+    public function getFrequency()
+    {
+        return $this->frequency;
     }
 }
