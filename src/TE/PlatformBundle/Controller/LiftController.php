@@ -171,7 +171,11 @@ class LiftController extends Controller
             }
         }
 
-        $evalDriver = ($lift->getDriver()->getPositive()/($lift->getDriver()->getNegative() + $lift->getDriver()->getNegative()))*100;
+        if ($lift->getDriver()->getPositive() == 0 && $lift->getDriver()->getNegative() == 0) {
+            $evalDriver = -1;
+        } else {
+            $evalDriver = ($lift->getDriver()->getPositive()/($lift->getDriver()->getNegative() + $lift->getDriver()->getNegative()))*100;
+        }
 
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig',
           array('lift' => $lift,

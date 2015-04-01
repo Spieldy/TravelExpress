@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="28eda2b2-fd66-4cae-8c38-e2d8526c6e72" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" afterPath="$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="TravelExpress.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="LiftController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.059679765" vertical-offset="2798" max-vertical-offset="5185">
-              <caret line="176" column="32" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.38136828" vertical-offset="2577" max-vertical-offset="5253">
+              <caret line="176" column="138" selection-start-line="176" selection-start-column="138" selection-end-line="176" selection-end-column="138" />
               <folding />
             </state>
           </provider>
@@ -111,8 +110,8 @@
       <file leaf-file-name="viewLift.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.653846" vertical-offset="626" max-vertical-offset="1479">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state vertical-scroll-proportion="11.653846" vertical-offset="830" max-vertical-offset="1683">
+              <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -537,8 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Resources/views/Lift/viewLift.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.653846" vertical-offset="626" max-vertical-offset="1479">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state vertical-scroll-proportion="11.653846" vertical-offset="830" max-vertical-offset="1683">
+          <caret line="31" column="10" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -569,8 +568,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TE/PlatformBundle/Controller/LiftController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.059679765" vertical-offset="2798" max-vertical-offset="5185">
-          <caret line="176" column="32" selection-start-line="176" selection-start-column="32" selection-end-line="176" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.38136828" vertical-offset="2577" max-vertical-offset="5253">
+          <caret line="176" column="138" selection-start-line="176" selection-start-column="138" selection-end-line="176" selection-end-column="138" />
           <folding />
         </state>
       </provider>
