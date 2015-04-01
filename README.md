@@ -1,13 +1,24 @@
 Travel Express
 ========================
 
-Installer composer :
-  curl -sS https://getcomposer.org/installer | php
-  sudo mv composer.phar /usr/local/bin/composer
+Pour installer Travel Express :
 
-Installer l'application :
-  composer install
+1. Cloner le dépot GIT ou télécharcher l'archive.
 
-Installer la base de données :
-  php app/console doctrine:database:create
-  php app/console doctrine:schema:update --force
+2. Installer composer :
+```
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+3. Installer l'application :
+```
+cd TravelExpress
+composer install
+```
+
+4. Installer la base de données :
+```
+php app/console doctrine:database:create
+php app/console doctrine:schema:update --force
+```
