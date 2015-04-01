@@ -171,6 +171,8 @@ class LiftController extends Controller
             }
         }
 
+        $evalDriver = $lift->getDriver()->getPositive() - $lift->getDriver()->getNegative();
+
         return $this->render('TEPlatformBundle:Lift:viewLift.html.twig',
           array('lift' => $lift,
                 'booked' => $booked,
@@ -179,7 +181,8 @@ class LiftController extends Controller
                 'passengers' => $passengers,
                 'evaluation' => $evaluation,
                 'isPositive' => $isPositive,
-                'seatsAvailable' => $seatsAvailable
+                'seatsAvailable' => $seatsAvailable,
+                'evalDriver' => $evalDriver
           ));
     }
 
@@ -258,6 +261,20 @@ class LiftController extends Controller
      */
     public function positiveAction($id)
     {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
+        $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
+        $bookedPassenger = $bookedPassengerRepository->findOneBy(array("booked" => $booked, "passenger" => $user));
+        if ($bookedPassenger->getVoted() == 0) {
+            $bookedPassenger->setVoted(1);
+            $booked->getDriver()->setPositive($booked->getDriver()->getPositive() + 1);
+        } else if ($bookedPassenger->getVoted() == 2) {
+            $bookedPassenger->setVoted(1);
+            $booked->getDriver()->setNegative($booked->getDriver()->getNegative() - 1);
+            $booked->getDriver()->setPositive($booked->getDriver()->getPositive() + 1);
+        }
+
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
         return $response;
     }
@@ -267,6 +284,21 @@ class LiftController extends Controller
      */
     public function negativeAction($id)
     {
+        $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $booked = $em->getRepository('TEPlatformBundle:Booked')->find($id);
+        $bookedPassengerRepository = $em->getRepository('TEPlatformBundle:BookedPassenger');
+        $bookedPassenger = $bookedPassengerRepository->findOneBy(array("booked" => $booked, "passenger" => $user));
+
+        if ($bookedPassenger->getVoted() == 0) {
+            $bookedPassenger->setVoted(2);
+            $booked->getDriver()->setNegative($booked->getDriver()->getNegative() + 1);
+        } else if ($bookedPassenger->getVoted() == 1) {
+            $bookedPassenger->setVoted(2);
+            $booked->getDriver()->setPositive($booked->getDriver()->getPositive() - 1);
+            $booked->getDriver()->setNegative($booked->getDriver()->getNegative() + 1);
+        }
+
         $response = $this->forward('TEPlatformBundle:Lift:view', array('id' => $id));
         return $response;
     }
